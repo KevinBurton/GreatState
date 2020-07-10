@@ -1,4 +1,4 @@
-﻿import React, { FC, useState } from 'react';
+﻿import React, { FC } from 'react';
 import {
 	TextField,
 	Button,
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	}),
 );
 
-export type FormData = {
+export type StartFormData = {
 	name: string;
 	email: string;
 	phone: string;
@@ -32,13 +32,13 @@ export type FormData = {
 };
 
 type StartProps = {
-	onSubmit: OnSubmit<FormData>;
+	onSubmit: OnSubmit<StartFormData>;
 };
 
 const Start: FC<StartProps> = ({ onSubmit }) => {
 	const classes = useStyles();
 
-	const { handleSubmit, control, errors } = useForm<FormData>({
+	const { handleSubmit, control, errors } = useForm<StartFormData>({
 		defaultValues: {
 			name: "Kevin",
 			phone: "16083588015",
@@ -83,7 +83,7 @@ const Start: FC<StartProps> = ({ onSubmit }) => {
 							inputProps={{
 								'data-testid': 'email'
 							}}
-						/>} name="email" rules={{ required: 'Email is required', pattern: { value: /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/i, message: 'Invalid email format' } }} control={control}
+						/>} name="email" rules={{ required: 'Email is required', pattern: { value: /^\w+[\w-.]*@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/i, message: 'Invalid email format' } }} control={control}
 						/>
 						{errors.email && <span className={classes.invalidInput} role="alert">{errors?.email?.message}</span>}
 					</div>

@@ -1,9 +1,9 @@
 ﻿import React from 'react';
-import Start, { FormData } from './Start';
+import Start, { StartFormData } from './Start';
 
 const GettingStarted = () => {
 
-	const handleGettingStarted = (form: FormData) => {
+	const handleGettingStarted = (form: StartFormData) => {
 		console.log(form);
 	}
 	return (

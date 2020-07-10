@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { FC, useState } from 'react';
 import {
 	FormControl,
 	Input,
@@ -24,7 +24,14 @@ const useStyle = makeStyles((theme) => ({
     }
 }));
 
-const UnderConstruction = ({ onSubmit }) => {
+export type NotificationFormData = {
+	email: string;
+};
+type NotificationProps = {
+	onSubmit: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
+};
+
+const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {
 	const classes = useStyle();
 	const [email, setEmail] = useState('');
 	return (

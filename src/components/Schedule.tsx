@@ -35,7 +35,7 @@ const Schedule = () => {
 			</p>
 			<div>
 				<div>
-					<iframe title="Schedule" src="https://app.wodify.com/Schedule/PublicCalendarListView.aspx?tenant=5463" programname="CrossFit&amp;MAC&amp;HeartRate&amp;OpenGym" width="1200" height="1200">
+					<iframe title="Schedule" src="https://app.wodify.com/Schedule/PublicCalendarListView.aspx?tenant=5463" width="1200" height="1200">
 					</iframe>
 				</div>
 			</div>

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const nocache = require('nocache');
 var hsts = require('hsts');
 const path = require('path');
 var xssFilter = require('x-xss-protection');
@@ -18,10 +19,9 @@ app.disable('x-powered-by');
 app.use(xssFilter());
 app.use(nosniff());
 app.set('etag', false);
+app.use(nocache());
 app.use(
-  helmet({
-    noCache: true
-  })
+  helmet()
 );
 app.use(
   hsts({
