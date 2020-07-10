@@ -6,6 +6,16 @@
 
 html { font-size: 14px; }
 
+.text-dark {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.active {
+    color: red;
+}
+
 @media (min-width: 768px) {
     html { font-size: 16px; }
 }
