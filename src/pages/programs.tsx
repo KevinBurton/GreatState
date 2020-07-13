@@ -1,9 +1,13 @@
 ﻿import React from 'react';
 import Button from '@material-ui/core/Button';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const Programs = () => {
 	return (
-		<>
+		<Layout>
+			<SEO title="Home" />	
 			<h2>Programs</h2>
 			<h6 style={{ textAlign: 'center' }}>CrossFit Group Classes</h6>
 			<p>
@@ -65,7 +69,7 @@ const Programs = () => {
 				suited specifically for you, whatever your goals may be.
 			</p>
 			<Button style={{ textTransform: 'none' }} variant="contained" color="primary">Personal Training Rates - $75/hour</Button>
-		</>
+		</Layout>
 	);
 }
 

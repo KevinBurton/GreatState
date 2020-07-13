@@ -1,6 +1,9 @@
 ﻿import React from 'react';
 import Location from '../components/Location';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const center = {
 	lat: 43.035419,
 	lng: -89.380748
@@ -8,7 +11,8 @@ const center = {
 
 const Dropin = () => {
 	return (
-		<>
+		<Layout>
+		<SEO title="Home" />
 			<h6>COMING TO TOWN ? WE LOVE VISITORS!</h6>
 			<p>
 				We would love to be a part of your Madison experience by having you drop -in while in town.
@@ -31,7 +35,7 @@ const Dropin = () => {
 				If you have any questions please call 608 - 338 - 8016
 			</p>
 			<Location center={center} />
-		</>
+		</Layout>
 	);
 }
 

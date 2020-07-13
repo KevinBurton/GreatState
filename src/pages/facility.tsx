@@ -1,8 +1,12 @@
 ﻿import React from 'react';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const Facility = () => {
 	return (
-		<>
+  		<Layout>
+    		<SEO title="Home" />
 			<h2>Facility</h2>
 			<p>
 				We know that an athlete’s experience at the gym is more than
@@ -26,7 +30,7 @@ const Facility = () => {
 				Check out our box below or, better yet, come visit us. We would love to meet you.
 			</p>
 			<img alt="Inside" src="assets/img/inside.jpg"/>
-		</>
+		</Layout>
 	);
 }
 

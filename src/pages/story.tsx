@@ -1,8 +1,12 @@
 ﻿import React from 'react';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const Story = () => {
 	return (
-		<>
+		<Layout>
+			<SEO title="Home" />	
 			<h2>OUR STORY</h2>
 			<p>		
 				The idea to open Great State CrossFit began when Head Coach
@@ -44,7 +48,7 @@ const Story = () => {
 			<p>Dry Land Coach for MAC</p>
 			<p>OPEX CCP, completing case studies</p>
 			<p>Personal Trainer Certification</p>
-		</>
+		</Layout>
 	);
 }
 

@@ -2,9 +2,13 @@
 
 import './Schedule.css';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const Schedule = () => {
 	return (
-		<>
+		<Layout>
+			<SEO title="Home" />	
 			<h2>CLASS SCHEDULE</h2>
 			<p>
 				We ask every new athlete (including DROP-INs!) to contact us before coming to their
@@ -39,7 +43,7 @@ const Schedule = () => {
 					</iframe>
 				</div>
 			</div>
-		</>
+		</Layout>
 	);
 }
 
