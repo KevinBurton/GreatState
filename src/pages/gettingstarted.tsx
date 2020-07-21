@@ -4,6 +4,11 @@ import Start, { StartFormData } from '../components/Start';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+export const PureGettingStarted = (handleGettingStarted) => {
+	return (
+		<Start onSubmit={handleGettingStarted}/>
+	);
+}
 const GettingStarted = () => {
 
 	const handleGettingStarted = (form: StartFormData) => {
@@ -12,7 +17,7 @@ const GettingStarted = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<Start onSubmit={handleGettingStarted}/>
+			<PureGettingStarted handleGettingStarted={handleGettingStarted}/>
 		</Layout>
 	);
 }

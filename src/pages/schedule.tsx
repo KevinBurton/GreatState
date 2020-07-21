@@ -5,10 +5,9 @@ import './Schedule.css';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Schedule = () => {
+export const PureSchedule = () => {
 	return (
-		<Layout>
-			<SEO title="Home" />	
+		<>
 			<h2>CLASS SCHEDULE</h2>
 			<p>
 				We ask every new athlete (including DROP-INs!) to contact us before coming to their
@@ -39,10 +38,19 @@ const Schedule = () => {
 			</p>
 			<div>
 				<div>
-					<iframe title="Schedule" src="https://app.wodify.com/Schedule/PublicCalendarListView.aspx?tenant=5463" width="1200" height="1200">
+					<iframe title="Schedule" src="https://app.wodify.com/Schedule/PublicCalendarListView.aspx?tenant=5463" width="800" height="800">
 					</iframe>
 				</div>
 			</div>
+		</>
+	);
+}
+
+const Schedule = () => {
+	return (
+		<Layout>
+			<SEO title="Home" />
+			<PureSchedule/>	
 		</Layout>
 	);
 }

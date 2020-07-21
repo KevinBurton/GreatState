@@ -32,18 +32,17 @@ const useStyles = makeStyles({
         justifyContent: 'center',
    }
 });
-const Contact = () => {
+export const PureContact = () => {
     const classes = useStyles();
     return (
-        <Layout>
-            <SEO title="Home" />
+        <>
             <Box display="flex"
-                flexWrap="nowrap">
+            flexWrap="nowrap">
                 <Card className={classes.root}>
                     <CardContent>
                         <Box display="flex" 
-                             alignItems="center"
-                             justifyContent="center">
+                            alignItems="center"
+                            justifyContent="center">
                             <ScheduleIcon htmlColor="blue" />
                         </Box>
                         <Typography className={classes.colorTextPrimary} align="center" variant="h5" component="h2" color="textPrimary">Hours of Operation</Typography>
@@ -55,8 +54,8 @@ const Contact = () => {
                 <Card className={classes.root}>
                     <CardContent>
                         <Box display="flex"
-                             alignItems="center"
-                             justifyContent="center">
+                            alignItems="center"
+                            justifyContent="center">
                             <CallIcon htmlColor="blue" />
                         </Box>
                         <Typography align="center" variant="body2" color="textSecondary" component="p">(608) 338-8016</Typography>
@@ -65,8 +64,8 @@ const Contact = () => {
                 <Card className={classes.root}>
                     <CardContent>
                         <Box display="flex"
-                             alignItems="center"
-                             justifyContent="center">
+                            alignItems="center"
+                            justifyContent="center">
                             <LocationOnIcon htmlColor="blue" />
                         </Box>
                         <Typography align="center" variant="body2" color="textSecondary" component="p">2500 Rimrock Road</Typography>
@@ -77,6 +76,15 @@ const Contact = () => {
             </Box>
             <Location center={center} />
             <img alt="Gym" src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=AIzaSyCnOdoYKEm2qYt82jJKH8clFc9gcuvEmPY"/>
+        </>
+    )
+};
+
+const Contact = () => {
+    return (
+        <Layout>
+            <SEO title="Home" />
+            <PureContact/>
         </Layout>
     );
 }

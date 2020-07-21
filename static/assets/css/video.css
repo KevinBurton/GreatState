@@ -14,14 +14,16 @@
     left: 50%;
     width: auto;
     height: auto;
-    //min-width: 100%;
     min-height: 100%;
     -webkit-transform: translate(-50%, -50%);
        -moz-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+@media all and (min-width : 320px) and (max-width: 767px) {
+            display: none;
 }
-@media (max-width: 767px) {
+}
+@media all and (min-width : 320px) and (max-width: 767px) {
     .fullscreen-bg {
         background: url('../img/MichaelPR.jpg') center center / cover no-repeat;
     }

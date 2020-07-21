@@ -3,16 +3,24 @@
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Resources = () => {
+export const PureResources = () => {
 	return (
-		<Layout>
-			<SEO title="Home" />	
+		<>
 			<h2>Resources</h2>
 			<ul>
 				<li>FAQ</li>
 				<li>Membership Policies</li>
-				<li>News & Updates</li>
+				<li>News &amp; Updates</li>
 			</ul>
+		</>
+	);
+}
+
+const Resources = () => {
+	return (
+		<Layout>
+			<SEO title="Home" />
+			<PureResources/>	
 		</Layout>
 	);
 }
