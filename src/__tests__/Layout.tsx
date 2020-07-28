@@ -111,6 +111,27 @@ describe("Layout", () => {
                 </a>
                 <a
                   class=""
+                  href="/michael"
+                  title="Michael"
+                >
+                  <li
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <h6
+                      class="MuiTypography-root makeStyles-nav-3 MuiTypography-h6 MuiTypography-noWrap"
+                    >
+                      Michael
+                    </h6>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </li>
+                </a>
+                <a
+                  class=""
                   href="/dropin"
                   title="Drop-Ins"
                 >
@@ -172,6 +193,27 @@ describe("Layout", () => {
                     />
                   </li>
                 </a>
+                <button
+                  aria-controls="about-menu"
+                  aria-haspopup="true"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                  tabindex="0"
+                  title="Covid-19"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <h6
+                      class="MuiTypography-root makeStyles-nav-3 MuiTypography-h6 MuiTypography-noWrap"
+                    >
+                      Covid-19
+                    </h6>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
                 <button
                   aria-controls="about-menu"
                   aria-haspopup="true"
@@ -242,36 +284,6 @@ describe("Layout", () => {
                     />
                   </svg>
                 </a>
-              </div>
-              <div
-                class="makeStyles-sectionMobile-8"
-              >
-                <button
-                  aria-controls="primary-search-account-menu-mobile"
-                  aria-haspopup="true"
-                  aria-label="show more"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
               </div>
             </div>
           </header>

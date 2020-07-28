@@ -1,9 +1,21 @@
-﻿import React from 'react';
+﻿import React, { FunctionComponent } from 'react';
+
+import Img, {FixedObject} from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export const PureFacility = () => {
+type ImageProps = {
+	inside: FixedObject;
+	inside2: FixedObject;
+	inside3: FixedObject;
+	window: FixedObject;
+	balcony: FixedObject;
+  }
+
+  
+export const PureFacility: FunctionComponent<ImageProps> = ({inside, inside2, inside3, window, balcony}) => {
 	return (
 		<>
 			<h2>Facility</h2>
@@ -23,20 +35,79 @@ export const PureFacility = () => {
 				is centrally located – we are just off the beltline (exit south on
 				Rimrock Rd) and have plenty of private parking.  We are literally
 				down the street from the Alliant Energy Center (where the 2017-2021
-				CrossFit Games are held!) and another 5 minutes from Downtown & the
+				CrossFit Games are held!) and another 5 minutes from Downtown &amp; the
 				Capitol square.
 
 				Check out our box below or, better yet, come visit us. We would love to meet you.
 			</p>
-			<img alt="Inside" src="assets/img/inside.jpg"/>
+			<Img fixed={inside} alt="Inside"/>
+			<div>
+				<Img fixed={inside2} alt="Inside2"/>
+				<Img fixed={inside3} alt="Inside3"/>
+				<Img fixed={window} alt="Window"/>
+				<Img fixed={balcony} alt="Balcony"/>
+			</div>
 		</>
 	);
 }
 const Facility = () => {
-	return (
+	const facilityData = useStaticQuery(graphql`
+    query {
+      inside: file(relativePath: {eq: "inside.jpg"}) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fixed(width: 720, height: 720) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+	  inside2: file(relativePath: {eq: "inside2.jpg"}) {
+		childImageSharp {
+		  # Specify the image processing specifications right in the query.
+		  # Makes it trivial to update as your page's design changes.
+		  fixed(width: 180, height: 180) {
+			...GatsbyImageSharpFixed
+		  }
+		}
+	  }
+	  inside3: file(relativePath: {eq: "inside3.jpg"}) {
+		childImageSharp {
+		  # Specify the image processing specifications right in the query.
+		  # Makes it trivial to update as your page's design changes.
+		  fixed(width: 180, height: 180) {
+			...GatsbyImageSharpFixed
+		  }
+		}
+	  }
+	  window: file(relativePath: {eq: "window.jpg"}) {
+		childImageSharp {
+		  # Specify the image processing specifications right in the query.
+		  # Makes it trivial to update as your page's design changes.
+		  fixed(width: 180, height: 180) {
+			...GatsbyImageSharpFixed
+		  }
+		}
+	  }
+	  balcony: file(relativePath: {eq: "balcony.jpg"}) {
+		childImageSharp {
+		  # Specify the image processing specifications right in the query.
+		  # Makes it trivial to update as your page's design changes.
+		  fixed(width: 180, height: 180) {
+			...GatsbyImageSharpFixed
+		  }
+		}
+	  }
+	}`);
+   	return (
   		<Layout>
     		<SEO title="Home" />
-			<PureFacility/>
+			<PureFacility inside={facilityData.inside.childImageSharp.fixed}
+			              inside2={facilityData.inside2.childImageSharp.fixed}
+			              inside3={facilityData.inside3.childImageSharp.fixed}
+			              window={facilityData.window.childImageSharp.fixed}
+			              balcony={facilityData.balcony.childImageSharp.fixed}
+			/>
 		</Layout>
 	);
 }

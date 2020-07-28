@@ -5,14 +5,15 @@ import {
 } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import { useForm, Controller, OnSubmit } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		invalidInput: {
 			'& ': {
 				border: "red solid 2px",
-				color: "red"
+				color: "red",
+				fontSize: "12px"
 			}
 		},
 		root: {
@@ -32,13 +33,14 @@ export type StartFormData = {
 };
 
 type StartProps = {
-	onSubmit: OnSubmit<StartFormData>;
+	onSubmit: SubmitHandler<StartFormData>;
 };
 
 const Start: FC<StartProps> = ({ onSubmit }) => {
 	const classes = useStyles();
 
 	const { handleSubmit, control, errors } = useForm<StartFormData>({
+		mode: 'onBlur',
 		defaultValues: {
 			name: "Kevin",
 			phone: "16083588015",

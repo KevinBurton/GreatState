@@ -8,12 +8,12 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem, { MenuItemProps } from '@material-ui/core/MenuItem';
 import Menu, { MenuProps }from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -95,40 +95,38 @@ const StyledMenuItem = withStyles((theme) => ({
             },
         },
     },
-}))(MenuItem);
+}))(React.forwardRef((props: MenuItemProps, ref) => <MenuItem {...props} ref={ref}/>));
 
 export default function NavMenu() {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [anchorEla, setAnchorEla] = React.useState<null | HTMLElement>(null);
+    const [anchorElc, setAnchorElc] = React.useState<null | HTMLElement>(null);
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const isAboutMenuOpen = Boolean(anchorEla);
+    const isCovidMenuOpen = Boolean(anchorElc);
 
     const handleAboutMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
+        setAnchorEla(event.currentTarget);
     };
     const handleAboutMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
+        setAnchorEla(null);
     };
-
-    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setMobileMoreAnchorEl(event.currentTarget);
+    const handleCovidMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElc(event.currentTarget);
     };
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
+    const handleCovidMenuClose = () => {
+        setAnchorElc(null);
     };
 
     const aboutMenuId = 'about-menu';
     const renderAboutMenu = (
         <StyledMenu
-            anchorEl={anchorEl}
+            anchorEl={anchorEla}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={aboutMenuId}
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMenuOpen}
+            open={isAboutMenuOpen}
             onClose={handleAboutMenuClose}
         >
             <StyledMenuItem onClick={handleAboutMenuClose}>
@@ -176,39 +174,33 @@ export default function NavMenu() {
         </StyledMenu>
     );
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
+    const covidMenuId = 'covid-menu';
+    const renderCovidMenu = (
         <StyledMenu
-            anchorEl={mobileMoreAnchorEl}
+            anchorEl={anchorElc}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={mobileMenuId}
+            id={covidMenuId}
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
+            open={isCovidMenuOpen}
+            onClose={handleCovidMenuClose}
         >
-            <MenuItem>
-                <IconButton aria-label="show 11 new notifications" color="inherit">
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleAboutMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
+            <StyledMenuItem onClick={handleCovidMenuClose}>
+                <RouterLink to="/covid-19/status">
+                    <Typography className={classes.submenu} variant="h6" noWrap>
+                        Status
+                    </Typography>
+                </RouterLink>
+            </StyledMenuItem>
+            <StyledMenuItem onClick={handleCovidMenuClose}>
+                <RouterLink to="/covid-19/testing">
+                    <Typography className={classes.submenu} variant="h6" noWrap>
+                        Testing Sites
+                    </Typography>
+                </RouterLink>
+            </StyledMenuItem>
         </StyledMenu>
     );
-
     return (
             <div className={classes.grow}>
                 <AppBar position="static">
@@ -249,6 +241,15 @@ export default function NavMenu() {
                                     </MenuItem>
                                 </RouterLink>
                             </Tooltip>
+                            <Tooltip title="Michael" arrow>
+                                <RouterLink to="/michael">
+                                    <MenuItem>
+                                        <Typography className={classes.nav} variant="h6" noWrap>
+                                            Michael
+                                        </Typography>
+                                    </MenuItem>
+                                </RouterLink>
+                            </Tooltip>
                             <Tooltip title="Drop-Ins" arrow>
                                 <RouterLink to="/dropin">
                                     <MenuItem>
@@ -276,7 +277,21 @@ export default function NavMenu() {
                                     </MenuItem>
                                 </RouterLink>
                             </Tooltip>
-                            <Tooltip title="About Us" arrow>
+                            <Tooltip title="Covid-19" arrow>
+                                <Button
+                                    aria-controls={aboutMenuId}
+                                    aria-haspopup="true"
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleCovidMenuOpen}
+                                >
+                                    <Typography className={classes.nav} variant="h6" noWrap>
+                                        Covid-19
+                                     </Typography>
+                                </Button>
+                            </Tooltip>
+                            {renderCovidMenu}
+                             <Tooltip title="About Us" arrow>
                                 <Button
                                     aria-controls={aboutMenuId}
                                     aria-haspopup="true"
@@ -301,19 +316,8 @@ export default function NavMenu() {
                                 </RouterLink>
                             </Tooltip>
                         </div>
-                        <div className={classes.sectionMobile}>
-                            <IconButton
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={handleMobileMenuOpen}
-                                color="inherit">
-                                <MoreIcon />
-                            </IconButton>
-                        </div>
                     </Toolbar>
                 </AppBar>
-                {renderMobileMenu}
             </div>
     );
 }

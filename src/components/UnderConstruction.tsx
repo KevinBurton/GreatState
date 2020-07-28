@@ -37,7 +37,7 @@ const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {
 	return (
 		<>
 			<h2>Under Construction</h2>
-			<Countdown timeTillDate="07 08 2020, 6:00 am" timeFormat="MM DD YYYY, h:mm a" />
+			<Countdown timeTillDate="09 01 2020, 6:00 am" timeFormat="MM DD YYYY, h:mm a" />
 			<br />
 			<FormControl
 				className={classes.root}

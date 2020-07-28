@@ -1,9 +1,14 @@
-﻿import React from 'react';
+﻿import React, { FunctionComponent } from 'react';
+import Img, {FixedObject} from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+type ImageProps = {
+	mike: FixedObject;
+  }
 
-export const PureStory = () => {
+export const PureStory: FunctionComponent<ImageProps> = ({mike}) => {
 	return (
 		<>
 			<h2>OUR STORY</h2>
@@ -40,7 +45,7 @@ export const PureStory = () => {
 
 				We hope to see you in the gym soon.
 			</p>
-			<img alt="Mike" src="assets/img/mike-burton.jpg"/>
+			<Img fixed={mike} alt="Mike"/>
 			<h5>MIKE BURTON</h5>
 			<h6>Head Coach and Owner</h6>
 			<p>CF Level 1</p>
@@ -52,10 +57,22 @@ export const PureStory = () => {
 }
 
 const Story = () => {
+	const mikeQuery = useStaticQuery(graphql`
+    query {
+      mike: file(relativePath: {eq: "mike-burton.jpg"}) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fixed(width: 500, height: 500) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+	}`);
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<PureStory/>	
+			<PureStory mike={mikeQuery.mike.childImageSharp.fixed}/>	
 		</Layout>
 	);
 }

@@ -24,11 +24,14 @@ describe("App", () => {
       getState: () => ({ ...state }),
     })
     const store = storeFake({}) as any
-    const fixed = {};
+    const fixed = {}
     const { container } = render(
       <Provider store={store}>
         <Layout>
-          <PureIndexPage handleUnderConstructionNotification={notification} fixed={fixed}/>
+          <PureIndexPage
+            handleUnderConstructionNotification={notification}
+            fixed={fixed}
+          />
         </Layout>
       </Provider>
     )
@@ -138,6 +141,27 @@ describe("App", () => {
                 </a>
                 <a
                   class=""
+                  href="/michael"
+                  title="Michael"
+                >
+                  <li
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    <h6
+                      class="MuiTypography-root makeStyles-nav-3 MuiTypography-h6 MuiTypography-noWrap"
+                    >
+                      Michael
+                    </h6>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </li>
+                </a>
+                <a
+                  class=""
                   href="/dropin"
                   title="Drop-Ins"
                 >
@@ -199,6 +223,27 @@ describe("App", () => {
                     />
                   </li>
                 </a>
+                <button
+                  aria-controls="about-menu"
+                  aria-haspopup="true"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                  tabindex="0"
+                  title="Covid-19"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <h6
+                      class="MuiTypography-root makeStyles-nav-3 MuiTypography-h6 MuiTypography-noWrap"
+                    >
+                      Covid-19
+                    </h6>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
                 <button
                   aria-controls="about-menu"
                   aria-haspopup="true"
@@ -270,36 +315,6 @@ describe("App", () => {
                   </svg>
                 </a>
               </div>
-              <div
-                class="makeStyles-sectionMobile-8"
-              >
-                <button
-                  aria-controls="primary-search-account-menu-mobile"
-                  aria-haspopup="true"
-                  aria-label="show more"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
             </div>
           </header>
         </div>
@@ -307,30 +322,20 @@ describe("App", () => {
           class="container"
         >
           <div
-            class="fullscreen-bg"
+            class=" gatsby-image-wrapper"
+            style="position: relative; overflow: hidden; display: inline-block;"
           >
-            <video
-              autoplay=""
-              class="fullscreen-bg__video"
-              loop=""
-            >
-              <source
-                src="test-file-stub"
-                type="video/mp4"
+            <picture>
+              <source />
+              <img
+                alt=""
+                loading="lazy"
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms;"
               />
-              <source
-                src="test-file-stub"
-                type="video/ogg"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div>
-            <img
-              alt="Great State"
-              class="logo"
-              src="test-file-stub"
-            />
+            </picture>
+            <noscript>
+              &lt;picture&gt;&lt;source srcset="undefined" /&gt;&lt;img loading="lazy" src="" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+            </noscript>
           </div>
         </div>
       </div>
@@ -350,11 +355,14 @@ describe("App", () => {
       getState: () => ({ ...state }),
     })
     const store = storeFake({}) as any
-    const fixed = {};
+    const fixed = {}
     const { queryByText } = render(
       <Provider store={store}>
         <Layout>
-          <PureIndexPage handleUnderConstructionNotification={notification} fixed={fixed}/>
+          <PureIndexPage
+            handleUnderConstructionNotification={notification}
+            fixed={fixed}
+          />
         </Layout>
       </Provider>
     )
@@ -377,11 +385,14 @@ describe("App", () => {
       getState: () => ({ ...state }),
     })
     const store = storeFake({}) as any
-    const fixed = {};
+    const fixed = {}
     const { queryByText } = render(
       <Provider store={store}>
         <Layout>
-          <PureIndexPage handleUnderConstructionNotification={notification} fixed={fixed}/>
+          <PureIndexPage
+            handleUnderConstructionNotification={notification}
+            fixed={fixed}
+          />
         </Layout>
       </Provider>
     )
