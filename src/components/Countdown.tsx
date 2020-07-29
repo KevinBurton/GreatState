@@ -10,7 +10,7 @@ function mapNumber(number: number, in_min: number, in_max: number, out_min: numb
     );
 }
 
-export type DateDifference = {
+export interface DateDifference {
     year: number;
     month: number;
     day: number;
@@ -38,7 +38,7 @@ export function dateDelta(a: Date, b: Date = new Date()) : DateDifference {
     return r;
 }
 
-export type CountdownState = {
+type CountdownState = {
     months: number;
     days: number;
     hours: number;
@@ -100,35 +100,35 @@ class Countdown extends React.Component<CountdownProps,CountdownState> {
             <div>
                 <h1>Countdown</h1>
                 <div className="countdown-wrapper">
-                    {months && (
+                    {months != undefined && (
                         <div className="countdown-item">
                             <SVGCircle radius={monthsRadius} />
                             {months}
                             <span>months</span>
                         </div>
                     )}
-                    {days && (
+                    {days  != undefined && (
                         <div className="countdown-item">
                             <SVGCircle radius={daysRadius} />
                             {days}
                             <span>days</span>
                         </div>
                     )}
-                    {hours && (
+                    {hours != undefined && (
                         <div className="countdown-item">
                             <SVGCircle radius={hoursRadius} />
                             {hours}
                             <span>hours</span>
                         </div>
                     )}
-                    {minutes && (
+                    {minutes != undefined && (
                         <div className="countdown-item">
                             <SVGCircle radius={minutesRadius} />
                             {minutes}
                             <span>minutes</span>
                         </div>
                     )}
-                    {seconds && (
+                    {seconds != undefined && (
                         <div className="countdown-item">
                             <SVGCircle radius={secondsRadius} />
                             {seconds}
