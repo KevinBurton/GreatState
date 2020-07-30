@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import WOD, { PureWOD } from "../pages/wod"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import WOD, { PureWOD } from "../pages/wod";
 describe("WOD", () => {
   test("renders PureWOD without crashing", async () => {
-    const { container } = render(<PureWOD />)
+    const { container } = render(<PureWOD />);
     // rend should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -12,10 +12,10 @@ describe("WOD", () => {
           WOD
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders WOD without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -24,8 +24,8 @@ describe("WOD", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<WOD />)
+    }));
+    const { container } = render(<WOD />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -317,6 +317,6 @@ describe("WOD", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

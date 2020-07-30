@@ -1,16 +1,16 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Facility, { PureFacility } from "../pages/facility"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Facility, { PureFacility } from "../pages/facility";
 
 describe("Facility", () => {
   beforeEach(() => {
-    jest.mock("gatsby")
-  })
+    jest.mock("gatsby");
+  });
   afterEach(() => {
-    jest.clearAllMocks()
-    jest.resetModules()
-  })
+    jest.clearAllMocks();
+    jest.resetModules();
+  });
   test("renders PureFacility without crashing", async () => {
     const { container } = render(
       <PureFacility
@@ -20,7 +20,7 @@ describe("Facility", () => {
         window={{ width: 0, height: 0, src: "testing", srcSet: "testing" }}
         balcony={{ width: 0, height: 0, src: "testing", srcSet: "testing" }}
       />
-    )
+    );
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -143,10 +143,10 @@ describe("Facility", () => {
           </div>
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Facility without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -220,8 +220,8 @@ describe("Facility", () => {
           },
         },
       },
-    }))
-    const { container } = render(<Facility />)
+    }));
+    const { container } = render(<Facility />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -691,6 +691,6 @@ describe("Facility", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Pricing, { PurePricing } from "../pages/pricing"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Pricing, { PurePricing } from "../pages/pricing";
 describe("Pricing", () => {
   test("renders PurePricing without crashing", async () => {
-    const { container } = render(<PurePricing />)
+    const { container } = render(<PurePricing />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -15,10 +15,10 @@ describe("Pricing", () => {
           READY TO JOIN GREAT STATE CROSSFIT? WE’RE EXCITED TO HAVE YOU AS A MEMBER. WE HAVE AN ARRAY OF MEMBERSHIP OPTIONS AND PLANS TO SUIT YOUR SCHEDULE.
         </p>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Pricing without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -27,8 +27,8 @@ describe("Pricing", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Pricing />)
+    }));
+    const { container } = render(<Pricing />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -324,6 +324,6 @@ describe("Pricing", () => {
           </p>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

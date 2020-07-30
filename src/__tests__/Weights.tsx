@@ -1,89 +1,25 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Weights, { PureWeights } from "../pages/weights"
+import React from "react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  cleanup,
+} from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Weights from "../pages/weights";
 
 describe("Weights", () => {
-  test("renders Weights without crashing", async () => {
-    const { container } = render(<PureWeights />)
-    expect(container).toMatchInlineSnapshot(`
-      <div>
-        <div
-          class="page-wrap"
-        >
-          <div
-            class="weight-slider"
-          >
-            <h2>
-              How Many Plates Do You Need?
-            </h2>
-            <input
-              max="600"
-              min="5"
-              step="5"
-              type="range"
-              value="100"
-            />
-            <div>
-              100
-               lbs.
-            </div>
-          </div>
-          <section>
-            <div
-              class="plates-display"
-            >
-              <div
-                class="plates-left"
-              >
-                <span
-                  data-weight="2.5"
-                />
-                <span
-                  data-weight="25"
-                />
-              </div>
-              <div
-                class="plates-right"
-              >
-                <span
-                  data-weight="25"
-                />
-                <span
-                  data-weight="2.5"
-                />
-              </div>
-            </div>
-            <div
-              class="plates-list"
-            >
-              <div>
-                Assuming a 
-                45
-                 lb. bar.
-              </div>
-              <ul>
-                <li>
-                  2
-                   × 
-                  25
-                   lb. plates
-                </li>
-                <li>
-                  2
-                   × 
-                  2.5
-                   lb. plates
-                </li>
-              </ul>
-            </div>
-          </section>
-        </div>
-      </div>
-    `)
-  })
+  beforeEach(() => {
+    jest.mock("gatsby");
+  });
+  afterEach(() => {
+    cleanup();
+    jest.clearAllMocks();
+    jest.resetModules();
+  });
   test("renders Weight without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -92,8 +28,15 @@ describe("Weights", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Weights />)
+    }));
+    const handleChange = jest.fn();
+    const { container, getByRole } = render(
+      <Weights handleChange={handleChange} />
+    );
+    await waitFor(() => expect(screen.getByRole("slider")).toBeInTheDocument());
+    const slider = getByRole("slider");
+    fireEvent.change(slider);
+    //expect(handleChange).toHaveBeenCalled();
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -453,6 +396,6 @@ describe("Weights", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Schedule, { PureSchedule } from "../pages/schedule"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Schedule, { PureSchedule } from "../pages/schedule";
 describe("Schedule", () => {
   test("renders Schedule without crashing", async () => {
-    const { container } = render(<PureSchedule />)
+    const { container } = render(<PureSchedule />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -75,10 +75,10 @@ describe("Schedule", () => {
           </div>
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Resources without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -87,8 +87,8 @@ describe("Schedule", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Schedule />)
+    }));
+    const { container } = render(<Schedule />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -443,6 +443,6 @@ describe("Schedule", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

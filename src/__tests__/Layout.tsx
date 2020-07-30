@@ -1,9 +1,9 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import Layout from "../components/Layout"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import Layout from "../components/Layout";
 describe("Layout", () => {
   test("renders Layout without crashing", async () => {
-    const { container } = render(<Layout />)
+    const { container } = render(<Layout />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -292,6 +292,6 @@ describe("Layout", () => {
           class="container"
         />
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

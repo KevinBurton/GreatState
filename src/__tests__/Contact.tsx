@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Contact, { PureContact } from "../pages/contact"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Contact, { PureContact } from "../pages/contact";
 describe("Contact", () => {
   test("renders Contact without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -13,8 +13,8 @@ describe("Contact", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Contact />)
+    }));
+    const { container } = render(<Contact />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -427,10 +427,10 @@ describe("Contact", () => {
           />
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Contact without crashing", async () => {
-    const { container } = render(<PureContact />)
+    const { container } = render(<PureContact />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -558,6 +558,6 @@ describe("Contact", () => {
           src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=AIzaSyCnOdoYKEm2qYt82jJKH8clFc9gcuvEmPY"
         />
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

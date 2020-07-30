@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Dropin, { PureDropin } from "../pages/dropin"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Dropin, { PureDropin } from "../pages/dropin";
 describe("Dropin", () => {
   test("renders PureDropin without crashing", async () => {
-    const { container } = render(<PureDropin />)
+    const { container } = render(<PureDropin />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -31,10 +31,10 @@ describe("Dropin", () => {
           Loading...
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Drop-in without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -43,8 +43,8 @@ describe("Dropin", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Dropin />)
+    }));
+    const { container } = render(<Dropin />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -355,6 +355,6 @@ describe("Dropin", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

@@ -1,10 +1,10 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Resources, { PureResources } from "../pages/resources"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Resources, { PureResources } from "../pages/resources";
 describe("Resources", () => {
   test("renders PureResources without crashing", async () => {
-    const { container } = render(<PureResources />)
+    const { container } = render(<PureResources />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -23,10 +23,10 @@ describe("Resources", () => {
           </li>
         </ul>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Resources without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -35,8 +35,8 @@ describe("Resources", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Resources />)
+    }));
+    const { container } = render(<Resources />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -339,6 +339,6 @@ describe("Resources", () => {
           </ul>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

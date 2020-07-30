@@ -70,7 +70,7 @@ const StyledMenu = withStyles({
     paper: {
         border: '1px solid #d3d4d5',
     },
-})((props: MenuProps) => (
+})(React.forwardRef((props: MenuProps, ref) => (
     <Menu
         elevation={0}
         getContentAnchorEl={null}
@@ -83,8 +83,9 @@ const StyledMenu = withStyles({
             horizontal: 'center',
         }}
         {...props}
+        ref={ref}
     />
-));
+)));
 const StyledMenuItem = withStyles((theme) => ({
     root: {
         '&:focus': {
@@ -95,7 +96,7 @@ const StyledMenuItem = withStyles((theme) => ({
             },
         },
     },
-}))(React.forwardRef((props: MenuItemProps, ref) => <MenuItem {...props} ref={ref}/>));
+}))((props: MenuItemProps) => <MenuItem {...props} />);
 
 export default function NavMenu() {
     const classes = useStyles();

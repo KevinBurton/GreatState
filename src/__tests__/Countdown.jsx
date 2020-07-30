@@ -1,5 +1,7 @@
 ﻿import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render,
+        screen,
+        waitFor } from "@testing-library/react";
 import moment from 'moment';
 import Countdown from '../components/Countdown';
 describe('Countdown', () => {
@@ -12,7 +14,7 @@ describe('Countdown', () => {
 
         const { getByText } = render(<Countdown timeTillDate={tillDateString} timeFormat={tillDateFormat} />);
 
-        await screen.findByText(/Countdown/);
+        await waitFor(() => expect(screen.getByText(/Countdown/).toBeInTheDocument));
 
         expect(getByText('seconds')).toBeInTheDocument();
         expect(getByText('minutes')).toBeInTheDocument();

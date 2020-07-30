@@ -1,14 +1,14 @@
-﻿import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Story, { PureStory } from "../pages/story"
+﻿import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Story, { PureStory } from "../pages/story";
 describe("Story", () => {
   test("renders PureStory without crashing", async () => {
     const { container } = render(
       <PureStory
         mike={{ width: 0, height: 0, src: "testing", srcSet: "testing" }}
       />
-    )
+    );
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -59,10 +59,10 @@ describe("Story", () => {
           Personal Trainer Certification
         </p>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Story without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -85,8 +85,8 @@ describe("Story", () => {
           },
         },
       },
-    }))
-    const { container } = render(<Story />)
+    }));
+    const { container } = render(<Story />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -427,6 +427,6 @@ describe("Story", () => {
           </p>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

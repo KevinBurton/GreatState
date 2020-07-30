@@ -1,10 +1,10 @@
-﻿import React from "react"
-import * as gatsby from "gatsby"
-import { render } from "@testing-library/react"
-import Programs, { PurePrograms } from "../pages/programs"
+﻿import React from "react";
+import * as gatsby from "gatsby";
+import { render } from "@testing-library/react";
+import Programs, { PurePrograms } from "../pages/programs";
 describe("Programs", () => {
   test("renders PurePrograms without crashing", async () => {
-    const { container } = render(<PurePrograms />)
+    const { container } = render(<PurePrograms />);
     // render should show the title
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -139,10 +139,10 @@ describe("Programs", () => {
           />
         </button>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Pricing without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -151,8 +151,8 @@ describe("Programs", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Programs />)
+    }));
+    const { container } = render(<Programs />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -571,6 +571,6 @@ describe("Programs", () => {
           </button>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

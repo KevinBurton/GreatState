@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 import Img, {FixedObject} from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 
-const handleUnderConstructionNotification = (event) => {
+export const handleUnderConstructionNotification = (event) => {
   event.preventDefault();
   console.log(event);
 }

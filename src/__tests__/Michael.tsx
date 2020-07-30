@@ -1,10 +1,10 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import * as gatsby from "gatsby"
-import Michael, { PureMichael } from "../pages/michael"
+import React from "react";
+import { render } from "@testing-library/react";
+import * as gatsby from "gatsby";
+import Michael, { PureMichael } from "../pages/michael";
 describe("Michael", () => {
   test("renders PureMichael without crashing", async () => {
-    const { container } = render(<PureMichael />)
+    const { container } = render(<PureMichael />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -23,10 +23,10 @@ describe("Michael", () => {
           </video>
         </div>
       </div>
-    `)
-  })
+    `);
+  });
   test("renders Michael without crashing", async () => {
-    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery")
+    const useStaticQuery = jest.spyOn(gatsby, "useStaticQuery");
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
@@ -35,8 +35,8 @@ describe("Michael", () => {
           title: "My Title",
         },
       },
-    }))
-    const { container } = render(<Michael />)
+    }));
+    const { container } = render(<Michael />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -340,6 +340,6 @@ describe("Michael", () => {
           </div>
         </div>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});
