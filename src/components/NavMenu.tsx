@@ -96,7 +96,7 @@ const StyledMenuItem = withStyles((theme) => ({
             },
         },
     },
-}))((props: MenuItemProps) => <MenuItem {...props} />);
+}))(MenuItem);
 
 export default function NavMenu() {
     const classes = useStyles();
