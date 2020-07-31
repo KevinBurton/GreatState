@@ -720,7 +720,7 @@ describe("App", () => {
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root makeStyles-iconColor-21"
+                      class="MuiSvgIcon-root makeStyles-iconColor-22"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >

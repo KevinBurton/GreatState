@@ -19,6 +19,14 @@ const useStyle = makeStyles((theme) => ({
 		marginRight: theme.spacing(1),
 		width: 200
 	},
+	invalidInput: {
+		'& ': {
+			border: "red solid 2px",
+			color: "red",
+			fontSize: "12px",
+			width: "250px"
+		}
+	},
 	iconColor: {
 		color: theme.palette.common.black
     }
@@ -34,6 +42,7 @@ type NotificationProps = {
 const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {
 	const classes = useStyle();
 	const [email, setEmail] = useState('');
+	const [enteredEmail, setEnteredEmail] = useState('');
 	return (
 		<>
 			<h2>Under Construction</h2>
@@ -61,7 +70,11 @@ const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {
 						<InputAdornment position="end">
 							<IconButton
 								aria-label="submit email"
-								onClick={onSubmit}
+								onClick={(e) => {
+									onSubmit(e);
+									setEnteredEmail(email);
+									setEmail('');
+								}}
 								data-testid="notifications-form-submit"
 							>
 								<Send className={classes.iconColor} />
@@ -69,6 +82,7 @@ const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {
 						</InputAdornment>
 					}
 				/>
+				{enteredEmail.length > 0 && <span className={classes.invalidInput} role="alert">{`'${enteredEmail}' has been entered`}</span>}
 			</FormControl>
 		</>
 	);

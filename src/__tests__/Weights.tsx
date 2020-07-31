@@ -29,14 +29,14 @@ describe("Weights", () => {
         },
       },
     }));
-    const handleChange = jest.fn();
+    const handleSliderChange = jest.fn();
     const { container, getByRole } = render(
-      <Weights handleChange={handleChange} />
+      <Weights handleChange={handleSliderChange} />
     );
     await waitFor(() => expect(screen.getByRole("slider")).toBeInTheDocument());
     const slider = getByRole("slider");
-    fireEvent.change(slider);
-    //expect(handleChange).toHaveBeenCalled();
+    fireEvent.change(slider, {target: {value: 110}});
+    expect(handleSliderChange).toHaveBeenCalled();
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
