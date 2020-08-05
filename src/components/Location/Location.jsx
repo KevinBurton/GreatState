@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -44,4 +45,11 @@ const Location = ({ center }) => {
     );
 };
 
+Location.propTypes = {
+    center: PropTypes.shape({
+        lat: PropTypes.number.isRequired,
+        lng: PropTypes.number.isRequired
+    })
+};
+  
 export default Location;

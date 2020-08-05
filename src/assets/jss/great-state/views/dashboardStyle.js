@@ -3,7 +3,7 @@ import {
   whiteColor,
   grayColor,
   hexToRgb
-} from "assets/jss/material-dashboard-react.js";
+} from "assets/jss/great-state-material.js";
 
 import background from "assets/img/cover.jpeg";
 

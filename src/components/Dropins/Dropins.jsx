@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import Location from 'components/Location/Location';
 
 const Dropins = ({center}) => {
@@ -29,5 +30,12 @@ const Dropins = ({center}) => {
 		</>
 	);
 }
+
+Dropins.propTypes = {
+    center: PropTypes.shape({
+        lat: PropTypes.number.isRequired,
+        lng: PropTypes.number.isRequired
+    })
+};
 
 export default Dropins;

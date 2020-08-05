@@ -2,7 +2,7 @@ import React from "react";
 
 import Programs from "components/Programs/Programs";
 
-const ProgramsPage = () => {
+const ProgramsPage = (props) => {
     return (
 		<Programs/>
 	);

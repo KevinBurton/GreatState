@@ -3,7 +3,7 @@ import {
   whiteColor,
   grayColor,
   hexToRgb
-} from "assets/jss/material-dashboard-react.js";
+} from "assets/jss/great-state-material.js";
 
 const rtlStyle = {
   successText: {

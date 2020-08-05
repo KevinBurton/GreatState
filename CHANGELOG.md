@@ -43,7 +43,7 @@ _Warnings might appear while doing an npm install - they do not affect the UI or
 - Changed the `withStyles` function from Material-UI with the `makeStyles` function (integration with other frameworks should now be easy)
 - React Hooks is now supported
 ### Major style changes
-- Renamed `assets/jss/material-dashboard-react/layouts/dashboardStyle.js` to `assets/jss/material-dashboard-react/layouts/adminStyle.js`
+- Renamed `assets/jss/great-state-material/layouts/dashboardStyle.js` to `assets/jss/great-state-material/layouts/adminStyle.js`
 ### Deleted components
 ### Added components
 ### Deleted dependencies
@@ -124,7 +124,7 @@ ajv                        6.9.1   →   6.10.0
 ### New components
 - **src/components/FixedPlugin/FixedPlugin.jsx**(Left menu used by us for customization - due to this, we've had to add a link for the fonts awesome cdn)
 - **src/components/Header/RTLHeaderLinks.jsx**
-- **src/layouts/Admin.jsx** (instead of Dashboard)
+- **src/layouts/Public.jsx** (instead of Dashboard)
 - **src/layouts/RTL.jsx**
 - **src/views/RTLPage/RTLPage.jsx**
 ### Deleted components
@@ -159,10 +159,10 @@ ajv                        6.9.1   →   6.10.0
 ### Nice stuff
 - Added `install:clean` command (deletes `node_modules` and `package-lock.json` and runs `npm install`)
 ### Major style changes
-- `src/assets/jss/material-dashboard-react/components/tasksStyle.jsx`
-- `src/assets/jss/material-dashboard-react/checkboxAdnRadioStyle.jsx`
-- `src/assets/jss/material-dashboard-react/components/customTabsStyle.jsx`
-- `src/assets/jss/material-dashboard-react/components/snackbarContentStyle.jsx`
+- `src/assets/jss/great-state-material/components/tasksStyle.jsx`
+- `src/assets/jss/great-state-material/checkboxAdnRadioStyle.jsx`
+- `src/assets/jss/great-state-material/components/customTabsStyle.jsx`
+- `src/assets/jss/great-state-material/components/snackbarContentStyle.jsx`
 ### Deleted dependencies
 - `@babel/runtime v7.0.0-beta.55`
 ### Added dependencies
@@ -185,8 +185,8 @@ ajv                        6.9.1   →   6.10.0
   - `https://github.com/creativetimofficial/material-dashboard-react/issues/58`
 - Changed the `GridContainer` component
 ### Major style changes
-- `src/assets/jss/material-dashboard-react/components/footerStyle.jsx`
-- `src/assets/jss/material-dashboard-react/components/headerStyle.jsx`
+- `src/assets/jss/great-state-material/components/footerStyle.jsx`
+- `src/assets/jss/great-state-material/components/headerStyle.jsx`
 ### Added dependencies
 - `@babel/runtime v7.0.0-beta.55`
 ### Update dependencies
@@ -208,15 +208,15 @@ ajv                        6.9.1   →   6.10.0
   - https://github.com/creativetimofficial/material-dashboard-react/issues/47 (read the [./README.md](./README.md) file)
 ### Major style changes
 - Added styles for `svg`'s, **font-awesome** classes and `.material-icons` class inside
-  - `src/assets/jss/material-dashboard-react/views/dashboardStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/components/buttonStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/components/cardFooterStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/components/cardHeaderStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/components/headerLinksStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/components/customTabsStyle.jsx`
+  - `src/assets/jss/great-state-material/views/dashboardStyle.jsx`
+  - `src/assets/jss/great-state-material/components/buttonStyle.jsx`
+  - `src/assets/jss/great-state-material/components/cardFooterStyle.jsx`
+  - `src/assets/jss/great-state-material/components/cardHeaderStyle.jsx`
+  - `src/assets/jss/great-state-material/components/headerLinksStyle.jsx`
+  - `src/assets/jss/great-state-material/components/customTabsStyle.jsx`
 - Others
-  - `src/assets/jss/material-dashboard-react/tooltipStyle.jsx`
-  - `src/assets/jss/material-dashboard-react/dropdownStyle.jsx`
+  - `src/assets/jss/great-state-material/tooltipStyle.jsx`
+  - `src/assets/jss/great-state-material/dropdownStyle.jsx`
 ### Dropped components
 - Dropped popper usage in favour of `@material-ui/core/Popper` (Changes in `src/components/Header/HeaderLinks.jsx`)
 ### Added components
@@ -239,9 +239,9 @@ ajv                        6.9.1   →   6.10.0
 - Droped `src/components/index.js`, and changed all the imports to separate ones
 - Renamed `ItemGrid` to `GridItem`
 ### Major style changes
-- Moved the styles of `src/components/` inside `src/assets/jss/material-dashboard-react/components/`
-- Moved the styles of `src/layouts/` inside `src/assets/jss/material-dashboard-react/layouts/`
-- Moved the styles of `src/views/` inside `src/assets/jss/material-dashboard-react/views/`
+- Moved the styles of `src/components/` inside `src/assets/jss/great-state-material/components/`
+- Moved the styles of `src/layouts/` inside `src/assets/jss/great-state-material/layouts/`
+- Moved the styles of `src/views/` inside `src/assets/jss/great-state-material/views/`
 - Almost all styles have been changed more or less
 ### Dropped components
 - `src/components/CustomButtons/IconButton.jsx` (instead use `src/components/CustomButtons/Button.jsx` with `justIcon` prop)
@@ -285,8 +285,8 @@ ajv                        6.9.1   →   6.10.0
 ## [1.2.0] 2018-04-16
 ### Bug Fixing
 - Renamed `src/containers/App/App.jsx` to `src/layouts/Dashboard/Dashboard.jsx`
-- Renamed `src/variables/styles.jsx` to `src/assets/jss/material-dashboard-react.jsx`
-- Moved all the files from `src/variables/styles/` to `src/assets/jss/material-dashboard-react/`
+- Renamed `src/variables/styles.jsx` to `src/assets/jss/great-state-material.jsx`
+- Moved all the files from `src/variables/styles/` to `src/assets/jss/great-state-material/`
 - Changes caused by the upgrade of `material-ui`
 - Small bug fixing
 ### Deleted dependencies

@@ -3,7 +3,7 @@ import {
   primaryColor,
   dangerColor,
   grayColor
-} from "assets/jss/material-dashboard-react.js";
+} from "assets/jss/great-state-material.js";
 import tooltipStyle from "assets/jss/great-state/tooltipStyle.js";
 import checkboxAdnRadioStyle from "assets/jss/great-state/checkboxAdnRadioStyle.js";
 const tasksStyle = {

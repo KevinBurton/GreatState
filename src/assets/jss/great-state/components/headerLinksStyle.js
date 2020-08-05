@@ -2,7 +2,7 @@ import {
   defaultFont,
   dangerColor,
   whiteColor
-} from "assets/jss/material-dashboard-react.js";
+} from "assets/jss/great-state-material.js";
 
 import dropdownStyle from "assets/jss/great-state/dropdownStyle.js";
 

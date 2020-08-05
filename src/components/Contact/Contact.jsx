@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import CallIcon from '@material-ui/icons/Call';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -71,5 +72,13 @@ const Contact = ({center}) => {
         </>
     )
 };
+
+Contact.propTypes = {
+    center: PropTypes.shape({
+        lat: PropTypes.number.isRequired,
+        lng: PropTypes.number.isRequired
+    })
+};
+
 
 export default Contact;
