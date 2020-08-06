@@ -51,11 +51,11 @@ export default function Public({ ...rest }) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  // On the /maps route we want the map to be on full screen - 
+  // On the /schedule route we want the map to be on full screen - 
   // this is not possible if the content and conatiner classes are present
   // because they have some paddings which would make the map smaller
   const getRoute = () => {
-    return window.location.pathname !== "/public/maps";
+    return window.location.pathname !== "/public/schedule";
   };
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
@@ -104,9 +104,9 @@ export default function Public({ ...rest }) {
             <div className={classes.container}>{switchRoutes}</div>
           </div>
         ) : (
-          <div className={classes.map}>{switchRoutes}</div>
+          <div className={classes.schedule}>{switchRoutes}</div>
         )}
-        {getRoute() ? <Footer /> : null}
+        {getRoute() && <Footer />}
       </div>
     </div>
   );
