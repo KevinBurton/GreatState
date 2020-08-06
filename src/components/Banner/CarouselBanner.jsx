@@ -38,7 +38,7 @@ function Banner(props) {
                     {props.item.Caption}
                 </Typography>
 
-                <Button onClick={props.onClick} variant="outlined" className="ViewButton">
+                <Button onClick={() => props.onClick()} variant="outlined" className="ViewButton">
                     Start Now
                 </Button>
             </CardContent>
@@ -116,7 +116,7 @@ const items = [
         ]
     },
     {
-        Name: "Weight",
+        Name: "Strength",
         Caption: "Lift weights",
         contentPosition: "right",
         Items: [
@@ -188,7 +188,7 @@ class CarouselBanner extends React.Component {
     }
 
     onClickStart(event) {
-        this.props.history.push('/gettingstarted');
+        this.props.history.push('/public/gettingstarted');
     }
 
     render() {
@@ -206,7 +206,7 @@ class CarouselBanner extends React.Component {
                 >
                     {
                         items.map((item, index) => {
-                            return <Banner onClick={this.props.onClickStart} item={item} key={index} contentPosition={item.contentPosition}/>
+                            return <Banner onClick={this.onClickStart} item={item} key={index} contentPosition={item.contentPosition}/>
                         })
                     }
                 </Carousel>
