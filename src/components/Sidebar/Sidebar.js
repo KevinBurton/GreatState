@@ -45,24 +45,18 @@ export default function Sidebar(props) {
             <ListItem button className={classes.itemLink + listItemClasses}>
               {typeof prop.icon === "string" ? (
                 <Icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive
-                  })}
+                  className={classNames(classes.itemIcon, whiteFontClasses)}
                 >
                   {prop.icon}
                 </Icon>
               ) : (
                 <prop.icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive
-                  })}
+                  className={classNames(classes.itemIcon, whiteFontClasses)}
                 />
               )}
               <ListItemText
                 primary={prop.name}
-                className={classNames(classes.itemText, whiteFontClasses, {
-                  [classes.itemTextRTL]: props.rtlActive
-                })}
+                className={classNames(classes.itemText, whiteFontClasses)}
                 disableTypography={true}
               />
             </ListItem>
@@ -75,9 +69,7 @@ export default function Sidebar(props) {
     <div className={classes.logo}>
       <a
         href="/"
-        className={classNames(classes.logoLink, {
-          [classes.logoLinkRTL]: props.rtlActive
-        })}
+        className={classNames(classes.logoLink)}
         target="_blank"
       >
         <div className={classes.logoImage}>
@@ -95,9 +87,7 @@ export default function Sidebar(props) {
           anchor={"left"}
           open={props.open}
           classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive
-            })
+            paper: classNames(classes.drawerPaper)
           }}
           onClose={props.handleDrawerToggle}
           ModalProps={{
@@ -123,9 +113,7 @@ export default function Sidebar(props) {
           variant="permanent"
           open
           classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive
-            })
+            paper: classNames(classes.drawerPaper)
           }}
         >
           {brand}
@@ -143,7 +131,6 @@ export default function Sidebar(props) {
 }
 
 Sidebar.propTypes = {
-  rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
   bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red"]),
   logo: PropTypes.string,
