@@ -14,7 +14,7 @@ import CardHeader from "../Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CardBody from "../Card/CardBody.js";
 
-import styles from "assets/jss/great-state/views/dashboardStyle.js";
+import styles from "assets/jss/great-state/components/covidStyle.js";
 
 // ##############################
 // // // variables used to create animation on charts

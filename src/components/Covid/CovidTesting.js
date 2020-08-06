@@ -9,7 +9,7 @@ import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 
-import styles from "assets/jss/great-state/views/dashboardStyle.js";
+import styles from "assets/jss/great-state/components/covidStyle.js";
 
 const useStyles = makeStyles(styles);
 
