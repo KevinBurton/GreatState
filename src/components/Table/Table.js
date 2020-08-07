@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -14,10 +15,15 @@ const useStyles = makeStyles(styles);
 
 export default function CustomTable(props) {
   const classes = useStyles();
-  const { tableHead, tableData, tableHeaderColor } = props;
+  const { className, tableHead, tableData, tableHeaderColor } = props;
+  const tableClasses = classNames({
+    [classes.table]: true,
+    [className]: className !== undefined
+  });
+
   return (
     <div className={classes.tableResponsive}>
-      <Table className={classes.table}>
+      <Table className={tableClasses}>
         {tableHead !== undefined ? (
           <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
             <TableRow className={classes.tableHeadRow}>
@@ -59,6 +65,7 @@ CustomTable.defaultProps = {
 };
 
 CustomTable.propTypes = {
+  className: PropTypes.string,
   tableHeaderColor: PropTypes.oneOf([
     "warning",
     "primary",

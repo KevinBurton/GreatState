@@ -9,10 +9,9 @@ import {
   
   const covidStyle = {
     background: {
-      height: "100vh",
       backgroundImage: `url(${background})`,
       backgroundPosition: "center center",
-      backgroundSize: "cover"
+      backgroundSize: "50vh"
     },
     successText: {
       color: successColor[0]

@@ -13,8 +13,8 @@ import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CardBody from "../Card/CardBody.js";
-
 import styles from "assets/jss/great-state/components/covidStyle.js";
+import weightMask from "assets/img/weight-mask.jpg";
 
 // ##############################
 // // // variables used to create animation on charts
@@ -138,6 +138,7 @@ const CovidStatus = () => {
             </Card>
           </GridItem>
         </GridContainer>
+        <img src={weightMask} height="400vh" alt="Weight Mask"/>
         </>
     );
 }
