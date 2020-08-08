@@ -1,6 +1,9 @@
 import React from 'react';
 import { Theme, makeStyles, createStyles } from '@material-ui/core/styles';
 
+import MichaelPRVideo from "../assets/img/MichaelPR.mp4";
+import MichaelPR from "../assets/img/MichaelPR.jpg";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
       zIndex: -100,
       padding: theme.spacing(1),
       [theme.breakpoints.down('md')]: {
-        background: 'url("./assets/img/MichaelPR.jpg") center center / cover no-repeat'
+        background: `url(${MichaelPR}) center center / cover no-repeat`
       },
     },
     video: {
@@ -46,7 +49,7 @@ export default () => {
                     loop
                     className={styles.video}
                 >
-                    <source src='./assets/vid/MichaelPR.mp4' type='video/mp4' />
+                    <source src={MichaelPRVideo} type='video/mp4' />
                     Your device does not support playing 'video/mp4' videos
                 </video>
             </div>

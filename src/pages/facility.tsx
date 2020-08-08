@@ -50,53 +50,48 @@ export const PureFacility: FunctionComponent<ImageProps> = ({inside, inside2, in
 		</>
 	);
 }
+
+export const imageMainQuery = graphql`
+  fragment imageMainQuery on File {
+    name
+    childImageSharp {
+      # Specify the image processing specifications right in the query.
+      # Makes it trivial to update as your page's design changes.
+      fixed(width: 720, height: 720) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+}`
+
+export const imageTourQuery = graphql`
+  fragment imageTourQuery on File {
+    name
+    childImageSharp {
+      # Specify the image processing specifications right in the query.
+      # Makes it trivial to update as your page's design changes.
+      fixed(width: 180, height: 180) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+}`
+
 const Facility = () => {
 	const facilityData = useStaticQuery(graphql`
     query {
-      inside: file(relativePath: {eq: "inside.jpg"}) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fixed(width: 720, height: 720) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+      inside: file(relativePath: {eq: "img/inside.jpg"}) {
+		  ...imageMainQuery
       }
-	  inside2: file(relativePath: {eq: "inside2.jpg"}) {
-		childImageSharp {
-		  # Specify the image processing specifications right in the query.
-		  # Makes it trivial to update as your page's design changes.
-		  fixed(width: 180, height: 180) {
-			...GatsbyImageSharpFixed
-		  }
-		}
+	  inside2: file(relativePath: {eq: "img/inside2.jpg"}) {
+		...imageTourQuery
 	  }
-	  inside3: file(relativePath: {eq: "inside3.jpg"}) {
-		childImageSharp {
-		  # Specify the image processing specifications right in the query.
-		  # Makes it trivial to update as your page's design changes.
-		  fixed(width: 180, height: 180) {
-			...GatsbyImageSharpFixed
-		  }
-		}
+	  inside3: file(relativePath: {eq: "img/inside3.jpg"}) {
+		...imageTourQuery
 	  }
-	  window: file(relativePath: {eq: "window.jpg"}) {
-		childImageSharp {
-		  # Specify the image processing specifications right in the query.
-		  # Makes it trivial to update as your page's design changes.
-		  fixed(width: 180, height: 180) {
-			...GatsbyImageSharpFixed
-		  }
-		}
+	  window: file(relativePath: {eq: "img/window.jpg"}) {
+		...imageTourQuery
 	  }
-	  balcony: file(relativePath: {eq: "balcony.jpg"}) {
-		childImageSharp {
-		  # Specify the image processing specifications right in the query.
-		  # Makes it trivial to update as your page's design changes.
-		  fixed(width: 180, height: 180) {
-			...GatsbyImageSharpFixed
-		  }
-		}
+	  balcony: file(relativePath: {eq: "img/balcony.jpg"}) {
+		...imageTourQuery
 	  }
 	}`);
    	return (

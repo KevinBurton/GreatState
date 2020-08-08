@@ -1,15 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { navigate } from 'gatsby';
 import Carousel from "react-material-ui-carousel"
 import autoBind from "auto-bind"
 import '../../assets/scss/carouselbanner.scss';
-
-import Evolution from "../../assets/img/progression-lose-weight.png";
-import Excercise from "../../assets/img/exercise-words.jpg";
-import Bike from "../../assets/img/conditioning-bike.jpg";
-import Sharp from "../../assets/img/weight-lifting-women-back.jpg";
-import Load from "../../assets/img/weight-lifting-load.jpg";
-import Start from "../../assets/img/weight-lifting-start.jpg";
 
 import {
     Card,
@@ -84,54 +77,6 @@ function Banner(props) {
     )
 }
 
-const items = [
-    {
-        Name: "Lose Weight",
-        Caption: "Lose Weight",
-        contentPosition: "left",
-        Items: [
-            {
-                Name: "Evolution",
-                Image: Evolution
-            },
-            {
-                Name: "Did you do it?",
-                Image: Excercise
-            }
-        ]
-    },
-    {
-        Name: "Conditioning",
-        Caption: "Conditioning",
-        contentPosition: "middle",
-        Items: [
-            {
-                Name: "Bike",
-                Image: Bike
-            },
-            {
-                Name: "Sharp",
-                Image: Sharp
-            }
-        ]
-    },
-    {
-        Name: "Strength",
-        Caption: "Lift weights",
-        contentPosition: "right",
-        Items: [
-            {
-                Name: "Ready",
-                Image: Load
-            },
-            {
-                Name: "Set",
-                Image: Start
-            }
-        ]
-    }
-]
-
 class CarouselBanner extends React.Component {
     constructor(props) {
         super(props);
@@ -188,7 +133,7 @@ class CarouselBanner extends React.Component {
     }
 
     onClickStart(event) {
-        this.props.history.push('/public/gettingstarted');
+        navigate('/public/gettingstarted');
     }
 
     render() {
@@ -205,7 +150,7 @@ class CarouselBanner extends React.Component {
                     navButtonsAlwaysInvisible={this.state.navButtonsAlwaysInvisible}
                 >
                     {
-                        items.map((item, index) => {
+                        this.props.items.map((item, index) => {
                             return <Banner onClick={this.onClickStart} item={item} key={index} contentPosition={item.contentPosition}/>
                         })
                     }
@@ -215,4 +160,4 @@ class CarouselBanner extends React.Component {
     }
 }
 
-export default withRouter(CarouselBanner);
+export default CarouselBanner;

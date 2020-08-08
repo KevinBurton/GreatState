@@ -59,7 +59,7 @@ export const PureStory: FunctionComponent<ImageProps> = ({mike}) => {
 const Story = () => {
 	const mikeQuery = useStaticQuery(graphql`
     query {
-      mike: file(relativePath: {eq: "mike-burton.jpg"}) {
+      mike: file(relativePath: {eq: "img/mike-burton.jpg"}) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
