@@ -6,12 +6,12 @@ import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 // core components
 import GridItem from "../Grid/GridItem";
-import GridContainer from "../Grid/GridContainer.js";
-import Table from "../Table/Table.js";
-import Card from "../Card/Card.js";
-import CardHeader from "../Card/CardHeader.js";
-import CardFooter from "../Card/CardFooter.js";
-import CardBody from "../Card/CardBody.js";
+import GridContainer from "../Grid/GridContainer";
+import Table from "../Table/Table";
+import Card from "../Card/Card";
+import CardHeader from "../Card/CardHeader";
+import CardFooter from "../Card/CardFooter";
+import CardBody from "../Card/CardBody";
 
 import covidStyle from "../../assets/jss/great-state/components/covidStyle";
 

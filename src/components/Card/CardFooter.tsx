@@ -1,20 +1,26 @@
-import React from "react";
+import React, { FC } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 // core components
-import styles from "../../assets/jss/great-state/components/cardFooterStyle.js";
+import cardFooterStyles from "../../assets/jss/great-state/components/cardFooterStyle";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles((theme: Theme) => createStyles(cardFooterStyles));
 
-export default function CardFooter(props) {
+type CardFooterProps = {
+  className?: string,
+  plain?: boolean,
+  profile?: boolean,
+  stats?: boolean,
+  chart?: boolean
+};
+
+const CardFooter:FC<CardFooterProps> = ({ className, children, plain, profile, stats, chart, ...rest }) => {
   const classes = useStyles();
-  const { className, children, plain, profile, stats, chart, ...rest } = props;
   const cardFooterClasses = classNames({
     [classes.cardFooter]: true,
     [classes.cardFooterPlain]: plain,
@@ -30,11 +36,4 @@ export default function CardFooter(props) {
   );
 }
 
-CardFooter.propTypes = {
-  className: PropTypes.string,
-  plain: PropTypes.bool,
-  profile: PropTypes.bool,
-  stats: PropTypes.bool,
-  chart: PropTypes.bool,
-  children: PropTypes.node
-};
+export default CardFooter;

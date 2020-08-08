@@ -14,11 +14,11 @@ const cardStyle = {
     background: whiteColor,
     width: "100%",
     boxShadow: "0 1px 4px 0 rgba(" + hexToRgb(blackColor) + ", 0.14)",
-    position: "relative",
+    position: 'relative',
     display: "flex",
-    flexDirection: "column",
+    flexDirection: 'column',
     minWidth: "0",
-    wordWrap: "break-word",
+    wordWrap: 'break-word',
     fontSize: ".875rem"
   },
   cardPlain: {
@@ -27,7 +27,7 @@ const cardStyle = {
   },
   cardProfile: {
     marginTop: "30px",
-    textAlign: "center"
+    textAlign: 'center'
   },
   cardChart: {
     "& p": {
@@ -35,6 +35,6 @@ const cardStyle = {
       paddingTop: "0px"
     }
   }
-};
+} as const;
 
 export default cardStyle;

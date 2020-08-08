@@ -1,20 +1,24 @@
-import React from "react";
+import React, {FC } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import styles from "assets/jss/great-state/components/cardIconStyle.js";
+import cardIconStyles from "../../assets/jss/great-state/components/cardIconStyle";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles((theme: Theme) => createStyles(cardIconStyles));
 
-export default function CardIcon(props) {
+type CardIconProps = {
+  className?: string,
+  color?: 'warning' | 'success' | 'danger' | 'info' | 'primary' | 'rose'
+};
+
+const CardIcon:FC<CardIconProps> = ({ className, children, color, ...rest }) => {
   const classes = useStyles();
-  const { className, children, color, ...rest } = props;
   const cardIconClasses = classNames({
     [classes.cardIcon]: true,
     [classes[color + "CardHeader"]]: color,
@@ -27,15 +31,4 @@ export default function CardIcon(props) {
   );
 }
 
-CardIcon.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.oneOf([
-    "warning",
-    "success",
-    "danger",
-    "info",
-    "primary",
-    "rose"
-  ]),
-  children: PropTypes.node
-};
+export default CardIcon;

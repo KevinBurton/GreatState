@@ -1,21 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FC } from "react";
 import classNames from "classnames";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 // core components
-import styles from "../../assets/jss/great-state/components/tableStyle.js";
+import tableSyles from "../../assets/jss/great-state/components/tableStyle";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(() => createStyles(tableSyles));
 
-export default function CustomTable(props) {
+type CustomTableProps = {
+  className?: string,
+  tableHeaderColor: 'warning' | 'primary' | 'danger' | 'success' | 'info' | 'rose' | 'gray',
+  tableHead: string[],
+  tableData: ((string | number)[])[]
+};
+
+const CustomTable:FC<CustomTableProps> = ({ className, tableHead, tableData, tableHeaderColor }) => {
   const classes = useStyles();
-  const { className, tableHead, tableData, tableHeaderColor } = props;
   const tableClasses = classNames({
     [classes.table]: true,
     [className]: className !== undefined
@@ -60,21 +65,4 @@ export default function CustomTable(props) {
   );
 }
 
-CustomTable.defaultProps = {
-  tableHeaderColor: "gray"
-};
-
-CustomTable.propTypes = {
-  className: PropTypes.string,
-  tableHeaderColor: PropTypes.oneOf([
-    "warning",
-    "primary",
-    "danger",
-    "success",
-    "info",
-    "rose",
-    "gray"
-  ]),
-  tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])))
-};
+export default CustomTable;

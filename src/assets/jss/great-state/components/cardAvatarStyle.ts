@@ -1,4 +1,4 @@
-import { hexToRgb, blackColor } from "assets/jss/great-state-material.js";
+import { hexToRgb, blackColor } from "../../great-state-material";
 
 const cardAvatarStyle = {
   cardAvatar: {

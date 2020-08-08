@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 // core components
 import GridItem from "../Grid/GridItem";
-import GridContainer from "../Grid/GridContainer.js";
-import Table from "../Table/Table.js";
-import Card from "../Card/Card.js";
-import CardHeader from "../Card/CardHeader.js";
-import CardBody from "../Card/CardBody.js";
+import GridContainer from "../Grid/GridContainer";
+import Table from "../Table/Table";
+import Card from "../Card/Card";
+import CardHeader from "../Card/CardHeader";
+import CardBody from "../Card/CardBody";
 
 import covidStyle from "../../assets/jss/great-state/components/covidStyle";
 
