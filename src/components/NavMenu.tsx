@@ -1,21 +1,31 @@
 import React from 'react';
-import { Link as RouterLink  } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip, { TooltipProps } from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import MenuItem, { MenuItemProps } from '@material-ui/core/MenuItem';
+import MenuItem from '@material-ui/core/MenuItem';
 import Menu, { MenuProps }from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
+import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
 
-const useStyles = makeStyles((theme) => ({
+const errorFallback = ({error}: FallbackProps) => {
+    return (
+      <div role="alert">
+        <p>Something went wrong:</p>
+        <pre style={{color: 'red'}}>{error.message}</pre>
+      </div>
+    )
+  }
+
+  const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
     },
@@ -131,49 +141,49 @@ export default function NavMenu() {
             onClose={handleAboutMenuClose}
         >
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/pricing">
+                <Link to="/pricing">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Membership Pricing
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/programs">
+                <Link to="/programs">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Programs
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/schedule">
+                <Link to="/schedule">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Class Schedule
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/story">
+                <Link to="/story">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Our Story
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/facility">
+                <Link to="/facility">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Our Facility
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <RouterLink to="/resources">
+                <Link to="/resources">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Resources
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
         </StyledMenu>
-    );
+        );
 
     const covidMenuId = 'covid-menu';
     const renderCovidMenu = (
@@ -187,23 +197,25 @@ export default function NavMenu() {
             onClose={handleCovidMenuClose}
         >
             <StyledMenuItem onClick={handleCovidMenuClose}>
-                <RouterLink to="/covid-19/status">
+                <Link to="/covid-19/status">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Status
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleCovidMenuClose}>
-                <RouterLink to="/covid-19/testing">
+                <Link to="/covid-19/testing">
                     <Typography className={classes.submenu} variant="h6" noWrap>
                         Testing Sites
                     </Typography>
-                </RouterLink>
+                </Link>
             </StyledMenuItem>
         </StyledMenu>
-    );
+   );
     return (
-            <div className={classes.grow}>
+        <div className={classes.grow}>
+            <React.StrictMode>
+                <ErrorBoundary FallbackComponent={errorFallback}>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton
@@ -213,72 +225,57 @@ export default function NavMenu() {
                             aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
-                        <Tooltip title="Home" arrow>
-                            <RouterLink to="/">
+                            <Link to="/">
                                 <MenuItem>
                                 <Typography className={classes.nav} variant="h6" noWrap>
                                     Great State
                                 </Typography>
                                 </MenuItem>
-                            </RouterLink>
-                        </Tooltip>
+                            </Link>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
-                            <Tooltip title="Getting Started" arrow>
-                                <RouterLink to="/gettingstarted">
+                                <Link to="/gettingstarted">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             Getting Started
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Weights" arrow>
-                                <RouterLink to="/weights">
+                                </Link>
+                                <Link to="/weights">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             Weights
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Michael" arrow>
-                                <RouterLink to="/michael">
+                                </Link>
+                                <Link to="/michael">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             Michael
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Drop-Ins" arrow>
-                                <RouterLink to="/dropin">
+                                </Link>
+                                <Link to="/dropin">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             Drop-Ins
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Workout of the day" arrow>
-                                <RouterLink to="/wod">
+                                </Link>
+                                <Link to="/wod">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             WOD
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Contact Us" arrow>
-                                <RouterLink to="/contact">
+                                </Link>
+                                <Link to="/contact">
                                     <MenuItem>
                                         <Typography className={classes.nav} variant="h6" noWrap>
                                             Contact Us
                                         </Typography>
                                     </MenuItem>
-                                </RouterLink>
-                            </Tooltip>
-                            <Tooltip title="Covid-19" arrow>
+                                </Link>
                                 <Button
                                     aria-controls={aboutMenuId}
                                     aria-haspopup="true"
@@ -290,9 +287,7 @@ export default function NavMenu() {
                                         Covid-19
                                      </Typography>
                                 </Button>
-                            </Tooltip>
                             {renderCovidMenu}
-                             <Tooltip title="About Us" arrow>
                                 <Button
                                     aria-controls={aboutMenuId}
                                     aria-haspopup="true"
@@ -304,21 +299,20 @@ export default function NavMenu() {
                                         About Great State
                                      </Typography>
                                 </Button>
-                            </Tooltip>
                             {renderAboutMenu}
                             <IconButton aria-label="show 17 new notifications" color="inherit">
                                 <Badge badgeContent={17} color="secondary">
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
-                            <Tooltip title="Login" arrow>
-                                <RouterLink to="/login">
+                                <Link to="/login">
                                     <AccountCircle className={classes.nav} fontSize="large"/>
-                                </RouterLink>
-                            </Tooltip>
+                                </Link>
                         </div>
                     </Toolbar>
                 </AppBar>
-            </div>
+                </ErrorBoundary>
+            </React.StrictMode>
+        </div>
     );
 }

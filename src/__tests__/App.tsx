@@ -85,9 +85,7 @@ describe("App", () => {
                 />
               </button>
               <a
-                class=""
                 href="/"
-                title="Home"
               >
                 <li
                   aria-disabled="false"
@@ -112,9 +110,7 @@ describe("App", () => {
                 class="makeStyles-sectionDesktop-7"
               >
                 <a
-                  class=""
                   href="/gettingstarted"
-                  title="Getting Started"
                 >
                   <li
                     aria-disabled="false"
@@ -133,9 +129,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/weights"
-                  title="Weights"
                 >
                   <li
                     aria-disabled="false"
@@ -154,9 +148,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/michael"
-                  title="Michael"
                 >
                   <li
                     aria-disabled="false"
@@ -175,9 +167,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/dropin"
-                  title="Drop-Ins"
                 >
                   <li
                     aria-disabled="false"
@@ -196,9 +186,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/wod"
-                  title="Workout of the day"
                 >
                   <li
                     aria-disabled="false"
@@ -217,9 +205,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/contact"
-                  title="Contact Us"
                 >
                   <li
                     aria-disabled="false"
@@ -242,7 +228,6 @@ describe("App", () => {
                   aria-haspopup="true"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
                   tabindex="0"
-                  title="Covid-19"
                   type="button"
                 >
                   <span
@@ -263,7 +248,6 @@ describe("App", () => {
                   aria-haspopup="true"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
                   tabindex="0"
-                  title="About Us"
                   type="button"
                 >
                   <span
@@ -313,9 +297,7 @@ describe("App", () => {
                   />
                 </button>
                 <a
-                  class=""
                   href="/login"
-                  title="Login"
                 >
                   <svg
                     aria-hidden="true"
@@ -428,9 +410,7 @@ describe("App", () => {
                 />
               </button>
               <a
-                class=""
                 href="/"
-                title="Home"
               >
                 <li
                   aria-disabled="false"
@@ -455,9 +435,7 @@ describe("App", () => {
                 class="makeStyles-sectionDesktop-17"
               >
                 <a
-                  class=""
                   href="/gettingstarted"
-                  title="Getting Started"
                 >
                   <li
                     aria-disabled="false"
@@ -476,9 +454,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/weights"
-                  title="Weights"
                 >
                   <li
                     aria-disabled="false"
@@ -497,9 +473,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/michael"
-                  title="Michael"
                 >
                   <li
                     aria-disabled="false"
@@ -518,9 +492,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/dropin"
-                  title="Drop-Ins"
                 >
                   <li
                     aria-disabled="false"
@@ -539,9 +511,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/wod"
-                  title="Workout of the day"
                 >
                   <li
                     aria-disabled="false"
@@ -560,9 +530,7 @@ describe("App", () => {
                   </li>
                 </a>
                 <a
-                  class=""
                   href="/contact"
-                  title="Contact Us"
                 >
                   <li
                     aria-disabled="false"
@@ -585,7 +553,6 @@ describe("App", () => {
                   aria-haspopup="true"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
                   tabindex="0"
-                  title="Covid-19"
                   type="button"
                 >
                   <span
@@ -606,7 +573,6 @@ describe("App", () => {
                   aria-haspopup="true"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
                   tabindex="0"
-                  title="About Us"
                   type="button"
                 >
                   <span
@@ -656,9 +622,7 @@ describe("App", () => {
                   />
                 </button>
                 <a
-                  class=""
                   href="/login"
-                  title="Login"
                 >
                   <svg
                     aria-hidden="true"
@@ -683,7 +647,7 @@ describe("App", () => {
           </h2>
           <br />
           <div
-            class="MuiFormControl-root makeStyles-root-20"
+            class="MuiFormControl-root makeStyles-root-19"
             data-testid="notification-form"
           >
             <label
@@ -720,7 +684,7 @@ describe("App", () => {
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root makeStyles-iconColor-22"
+                      class="MuiSvgIcon-root makeStyles-iconColor-21"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >

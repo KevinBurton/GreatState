@@ -12,7 +12,9 @@ export const handleUnderConstructionNotification = (event) => {
 }
 
 type ImageProps = {
-  fixed: FixedObject
+  fixed: FixedObject|
+  
+  FixedObject[]
 }
 
 const PureImg: FunctionComponent<ImageProps> = ({fixed}) => {
