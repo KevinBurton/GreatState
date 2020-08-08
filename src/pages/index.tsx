@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 
 import UnderConstruction from '../components/UnderConstruction';
 import Layout from "../components/layout";
@@ -7,21 +7,41 @@ import Img, {FixedObject} from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 
 import CarouselBanner from '../components/Banner/CarouselBanner';
+import { string } from "prop-types";
 
-export const handleUnderConstructionNotification = (event) => {
-  event.preventDefault();
-  console.log(event);
-}
+const handleUnderConstructionNotification = async (
+  e: React.FormEvent<HTMLFormElement>
+): Promise<void> => {
+  e.preventDefault();
+  console.log(e);
+};
 
 type ImageProps = {
   logo: FixedObject|FixedObject[]
 }
 
-const PureImg: FunctionComponent<ImageProps> = ({logo}) => {
+const PureImg: FC<ImageProps> = ({logo}) => {
   return ( <Img fixed={logo} /> );
 }
 
-export const PureIndexPage = ({handleUnderConstructionNotification,logo,items}) => {
+export interface ImageAttribute {
+  Name: string;
+  Image: string;
+}
+export interface ItemAttribute {
+  Name: string;
+  Caption: string;
+  contentPosition: string;
+  Items: ImageAttribute[];
+}
+
+type PureIndexPageProps = {
+  handleUnderConstructionNotification: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<void>,
+  logo?: FixedObject|FixedObject[],
+  items?: ItemAttribute[]
+}
+
+export const PureIndexPage:FC<PureIndexPageProps> = ({handleUnderConstructionNotification,logo,items}) => {
   if (process.env.REACT_APP_CONSTRUCTION === 'true') {
     return (<UnderConstruction onSubmit={handleUnderConstructionNotification}/>);
   } else {
@@ -75,7 +95,7 @@ export const query = graphql`
 const IndexPage = () => {
   const { logo, evolution, exercise, sharp, bike, load, start } = useStaticQuery(query);
 
-  const items = [
+  const items:ItemAttribute[] = [
     {
         Name: "Lose Weight",
         Caption: "Lose Weight",

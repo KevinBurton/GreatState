@@ -36,7 +36,7 @@ export type NotificationFormData = {
 	email: string;
 };
 type NotificationProps = {
-	onSubmit: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
+	onSubmit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<void>;
 };
 
 const UnderConstruction: FC<NotificationProps> = ({ onSubmit }) => {

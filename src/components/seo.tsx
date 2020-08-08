@@ -12,8 +12,8 @@ import { useStaticQuery, graphql } from "gatsby"
 type SEOProps = {
   description?: string,
   lang?: string,
-  meta: any[],
-  title: string,
+  meta?: any[],
+  title: string
 }
 
 const SEO:FC<SEOProps> = ({ description, lang, meta, title }) => {
