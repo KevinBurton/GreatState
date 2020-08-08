@@ -3,19 +3,19 @@
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export const PureWOD = () => {
-	return (
-		<div>WOD</div>
-	);
+import WOD from "../components/WOD/WOD"
+
+export const PureWODPage = () => {
+	return (<WOD/>);
 }
 
-const WOD = () => {
+const WODPage = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<PureWOD/>
+			<PureWODPage/>
 		</Layout>
 	);
 }
 
-export default WOD;
+export default WODPage;

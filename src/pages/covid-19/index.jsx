@@ -5,8 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import SEO from '../../components/seo';
 import Layout from '../../components/layout';
 
-import CountyStatus from '../../components/CountyStatus';
-import CountyTesting from '../../components/CountyTesting';
+import CovidStatus from '../../components/Covid/CovidStatus';
+import CovidTesting from '../../components/Covid/CovidTesting';
 
 class IndexPageComponent extends React.Component {
     constructor(props) {
@@ -48,14 +48,14 @@ class IndexPageComponent extends React.Component {
                 if(query === 'status') {
                   return (
                     <>
-                      <SEO title={`Covid-19 ${query}`} />
-                      <CountyStatus features={this.state.status.features}/>
+                      <SEO title={`Covid-19 Status ${query}`} />
+                      <CovidStatus features={this.state.status.features}/>
                     </>);
                 } else if(query === 'testing') {
                   return (
                     <>
-                      <SEO title={`Covid-19 ${query}`} />
-                      <CountyTesting features={this.state.testing.features}/>
+                      <SEO title={`Covid-19 Testing ${query}`} />
+                      <CovidTesting features={this.state.testing.features}/>
                     </>);
                 }
               }

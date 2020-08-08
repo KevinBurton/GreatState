@@ -7,7 +7,7 @@ import {
   roseColor,
   grayColor,
   defaultFont
-} from "assets/jss/great-state-material.js";
+} from "../../great-state-material";
 
 const tableStyle = theme => ({
   warningTableHeader: {

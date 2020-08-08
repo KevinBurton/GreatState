@@ -1,4 +1,4 @@
-import { grayColor } from "assets/jss/great-state-material.js";
+import { grayColor } from "../../great-state-material";
 
 const cardFooterStyle = {
   cardFooter: {

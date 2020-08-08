@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 // core components
-import styles from "assets/jss/great-state/components/tableStyle.js";
+import styles from "../../assets/jss/great-state/components/tableStyle.js";
 
 const useStyles = makeStyles(styles);
 
