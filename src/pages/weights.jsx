@@ -6,7 +6,7 @@
   import Slider from '../components/Slider';
   import Plates from '../components/Plates';
 
-  import '../../static/assets/css/weights.css';
+  import '../../src/assets/css/weights.css';
   
 const Weights = (props) => {
   const calculatePlates = (weightParameter, plateParameter) => {

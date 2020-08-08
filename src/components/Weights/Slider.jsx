@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../src/assets/css/slider.css';
+import 'assets/css/slider.css';
 
 class Slider extends React.Component {
     render() {

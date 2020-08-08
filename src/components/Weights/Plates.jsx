@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../src/assets/css/plates.css';
+import 'assets/css/plates.css';
 
 class Plates extends React.Component {
     renderPlate(plate) {
