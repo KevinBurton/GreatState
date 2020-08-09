@@ -14,4 +14,9 @@ exports.createPages = async ({ actions: { createPage } }) => {
     component: require.resolve('./src/templates/testingSiteTemplate.jsx'),
     context: { query: 'testing' }
   });
+  createPage({
+    path: '/covid-19/dane',
+    component: require.resolve('./src/templates/daneCountySiteTemplate.jsx'),
+    context: { query: 'dane' }
+  });
 };

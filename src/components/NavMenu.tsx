@@ -210,6 +210,13 @@ export default function NavMenu() {
                     </Typography>
                 </Link>
             </StyledMenuItem>
+            <StyledMenuItem onClick={handleCovidMenuClose}>
+                <Link to="/covid-19/dane">
+                    <Typography className={classes.submenu} variant="h6" noWrap>
+                        Dane County
+                    </Typography>
+                </Link>
+            </StyledMenuItem>
         </StyledMenu>
    );
     return (
