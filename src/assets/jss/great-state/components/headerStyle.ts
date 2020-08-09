@@ -9,9 +9,9 @@ import {
   dangerColor,
   whiteColor,
   grayColor
-} from "assets/jss/great-state-material.js";
+} from "../../great-state-material";
 
-const headerStyle = () => ({
+const headerStyle = {
   appBar: {
     backgroundColor: "transparent",
     boxShadow: "none",
@@ -20,7 +20,7 @@ const headerStyle = () => ({
     position: "absolute",
     width: "100%",
     paddingTop: "10px",
-    zIndex: "1029",
+    zIndex: 1029,
     color: grayColor[7],
     border: "0",
     borderRadius: "3px",
@@ -77,6 +77,6 @@ const headerStyle = () => ({
     color: whiteColor,
     ...defaultBoxShadow
   }
-});
+} as const;
 
 export default headerStyle;

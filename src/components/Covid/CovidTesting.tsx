@@ -41,7 +41,7 @@ export interface CovidTestingFeature {
   attributes: CovidTestingAttributes;
 }
 type CovidTestingProps = {
-  features: CovidTestingFeature[];
+  features?: CovidTestingFeature[];
 }
 
 const CovidTesting: FC<CovidTestingProps> = ({features}) => {
@@ -60,10 +60,10 @@ const CovidTesting: FC<CovidTestingProps> = ({features}) => {
               <CardBody>
                 <Table
                   tableHeaderColor="warning"
-                  tableHead={[ "CT_ID","CMNTY_SRVD","NAME","TYPE","COUNTY","ADDRESS","CITY",
-                               "STATE","LAT","LON","STATUS","ACTIVE","LOC_DISC","DATES","HOURS",
+                  tableHead={[ "OBJECTID","CT_ID","CMNTY_SRVD","NAME","TYPE","COUNTY","ADDRESS","CITY",
+                               "STATE","ZIP","LAT","LON","STATUS","ACTIVE","LOC_DISC","DATES","HOURS",
                                "PROCESS","PHONE","PHONE2","CONTACT","CONTACT2" ]}
-                  tableData={features.map(d => Object.values(d.attributes))}
+                  tableData={features ? features.map(d => Object.values(d.attributes)) : []}
                 />
               </CardBody>
             </Card>

@@ -8,9 +8,11 @@ import {
   fireEvent,
 } from "@testing-library/react";
 import * as gatsby from "gatsby";
+import { FixedObject } from "gatsby-image";
 import IndexPage, {
   PureIndexPage,
   handleUnderConstructionNotification,
+  ItemAttribute,
 } from "../pages/index";
 import Layout from "../components/layout";
 const OLD_ENV = process.env;
@@ -38,13 +40,67 @@ describe("App", () => {
       getState: () => ({ ...state }),
     });
     const store = storeFake({}) as any;
-    const fixed = {};
+    const fixed: FixedObject = {
+      width: 0,
+      height: 0,
+      src: "",
+      srcSet: "",
+    };
+    const items: ItemAttribute[] = [
+      {
+        Name: "Lose Weight",
+        Caption: "Lose Weight",
+        contentPosition: "left",
+        Items: [
+          {
+            Name: "Evolution Name",
+            Image: "Evolution Image",
+          },
+          {
+            Name: "Did you do it?",
+            Image: "Exercise Nme",
+          },
+        ],
+      },
+      {
+        Name: "Conditioning",
+        Caption: "Conditioning",
+        contentPosition: "middle",
+        Items: [
+          {
+            Name: "Bike Name",
+            Image: "Bike Image",
+          },
+          {
+            Name: "Sharp Name",
+            Image: "Sharp Image",
+          },
+        ],
+      },
+      {
+        Name: "Strength",
+        Caption: "Lift weights",
+        contentPosition: "right",
+        Items: [
+          {
+            Name: "Ready Name",
+            Image: "Ready Image",
+          },
+          {
+            Name: "Set Name",
+            Image: "Set Image",
+          },
+        ],
+      },
+    ];
+
     const { container } = render(
       <Provider store={store}>
         <Layout>
           <PureIndexPage
             handleUnderConstructionNotification={notification}
-            fixed={fixed}
+            items={items}
+            logo={fixed}
           />
         </Layout>
       </Provider>
@@ -318,20 +374,184 @@ describe("App", () => {
           class="container"
         >
           <div
-            class=" gatsby-image-wrapper"
-            style="position: relative; overflow: hidden; display: inline-block;"
+            style="margin-top: 50px; color: rgb(73, 73, 73);"
           >
-            <picture>
-              <source />
-              <img
-                alt=""
-                loading="lazy"
-                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms;"
-              />
-            </picture>
-            <noscript>
-              &lt;picture&gt;&lt;source srcset="undefined" /&gt;&lt;img loading="lazy" src="" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
-            </noscript>
+            <div
+              class="Carousel-root-10 Example"
+            >
+              <div
+                class="CarouselItem"
+              >
+                <div
+                  style="opacity: 1; webkit-transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root Banner MuiPaper-elevation8 MuiPaper-rounded"
+                  >
+                    <div
+                      class="MuiGrid-root BannerGrid MuiGrid-container"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+                      >
+                        <div
+                          class="MuiCardContent-root Content"
+                        >
+                          <p
+                            class="MuiTypography-root Title MuiTypography-body1"
+                          >
+                            Lose Weight
+                          </p>
+                          <p
+                            class="MuiTypography-root Caption MuiTypography-body1"
+                          >
+                            Lose Weight
+                          </p>
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-outlined ViewButton"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span
+                              class="MuiButton-label"
+                            >
+                              Start Now
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+                      >
+                        <div
+                          class="MuiCardMedia-root Media"
+                          title="Evolution Name"
+                        >
+                          <p
+                            class="MuiTypography-root MediaCaption MuiTypography-body1"
+                          >
+                            Evolution Name
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+                      >
+                        <div
+                          class="MuiCardMedia-root Media"
+                          title="Did you do it?"
+                        >
+                          <p
+                            class="MuiTypography-root MediaCaption MuiTypography-body1"
+                          >
+                            Did you do it?
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="Carousel-buttonWrapper-14 Carousel-fullHeightHoverWrapper-15 Carousel-next-20"
+              >
+                <button
+                  aria-label="Next"
+                  class="MuiButtonBase-root MuiIconButton-root Carousel-button-16 Carousel-buttonHidden-19 Carousel-fullHeightHoverButton-17 Carousel-next-20"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <div
+                class="Carousel-buttonWrapper-14 Carousel-fullHeightHoverWrapper-15 Carousel-prev-21"
+              >
+                <button
+                  aria-label="Previous"
+                  class="MuiButtonBase-root MuiIconButton-root Carousel-button-16 Carousel-buttonHidden-19 Carousel-fullHeightHoverButton-17  Carousel-prev-21"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <div
+                class="Carousel-indicators-11"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root Carousel-indicator-12 Carousel-active-13 undefined"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="8"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root Carousel-indicator-12 undefined"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="8"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root Carousel-indicator-12 undefined"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="8"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -349,16 +569,80 @@ describe("App", () => {
           title: "My Title",
         },
       },
-      file: {
+      logo: {
         childImageSharp: {
           fixed: {
-            base64:
-              "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAEDBAL/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAY5sjNzLVZLAA//EABsQAAMAAgMAAAAAAAAAAAAAAAABAhETAxIg/9oACAEBAAEFAsFSjXk3QPlTO0+P/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHRAAAQMFAQAAAAAAAAAAAAAAAQARIRAgMTJBkf/aAAgBAQAGPwIMJ66ChvaYK0s//8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFBUZHx/9oACAEBAAE/IUBq9hiuRffQRadSWzLc8RrGlXxCDLn/2gAMAwEAAgADAAAAEG//AAH/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPxBj/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxDBX//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExQWFRcZH/2gAIAQEAAT8QMkQytfRWiN8Fmmhq+YtMjVpL+1FNWJSPdx0327A89wwhB6hpHi7n/9k=",
+            base64: "base64",
             width: 720,
             height: 720,
-            src: "/static/cc42e91a4a4cf46af0e53c32213e3afe/52979/inside.jpg",
-            srcSet:
-              "/static/cc42e91a4a4cf46af0e53c32213e3afe/52979/inside.jpg 1x",
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      evolution: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      exercise: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      bike: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      sharp: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      load: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
+          },
+        },
+      },
+      start: {
+        childImageSharp: {
+          fixed: {
+            base64: "base64",
+            width: 720,
+            height: 720,
+            src: "src",
+            srcSet: "srcSet",
           },
         },
       },
@@ -377,7 +661,7 @@ describe("App", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="makeStyles-grow-11"
+          class="makeStyles-grow-23"
         >
           <header
             class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
@@ -387,7 +671,7 @@ describe("App", () => {
             >
               <button
                 aria-label="open drawer"
-                class="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-12 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-24 MuiIconButton-colorInherit MuiIconButton-edgeStart"
                 tabindex="0"
                 type="button"
               >
@@ -419,7 +703,7 @@ describe("App", () => {
                   tabindex="-1"
                 >
                   <h6
-                    class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                    class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                   >
                     Great State
                   </h6>
@@ -429,10 +713,10 @@ describe("App", () => {
                 </li>
               </a>
               <div
-                class="makeStyles-grow-11"
+                class="makeStyles-grow-23"
               />
               <div
-                class="makeStyles-sectionDesktop-17"
+                class="makeStyles-sectionDesktop-29"
               >
                 <a
                   href="/gettingstarted"
@@ -444,7 +728,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Getting Started
                     </h6>
@@ -463,7 +747,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Weights
                     </h6>
@@ -482,7 +766,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Michael
                     </h6>
@@ -501,7 +785,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Drop-Ins
                     </h6>
@@ -520,7 +804,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       WOD
                     </h6>
@@ -539,7 +823,7 @@ describe("App", () => {
                     tabindex="-1"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Contact Us
                     </h6>
@@ -559,7 +843,7 @@ describe("App", () => {
                     class="MuiButton-label"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       Covid-19
                     </h6>
@@ -579,7 +863,7 @@ describe("App", () => {
                     class="MuiButton-label"
                   >
                     <h6
-                      class="MuiTypography-root makeStyles-nav-13 MuiTypography-h6 MuiTypography-noWrap"
+                      class="MuiTypography-root makeStyles-nav-25 MuiTypography-h6 MuiTypography-noWrap"
                     >
                       About Great State
                     </h6>
@@ -626,7 +910,7 @@ describe("App", () => {
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root makeStyles-nav-13 MuiSvgIcon-fontSizeLarge"
+                    class="MuiSvgIcon-root makeStyles-nav-25 MuiSvgIcon-fontSizeLarge"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -647,7 +931,7 @@ describe("App", () => {
           </h2>
           <br />
           <div
-            class="MuiFormControl-root makeStyles-root-19"
+            class="MuiFormControl-root makeStyles-root-31"
             data-testid="notification-form"
           >
             <label
@@ -684,7 +968,7 @@ describe("App", () => {
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root makeStyles-iconColor-21"
+                      class="MuiSvgIcon-root makeStyles-iconColor-33"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -722,13 +1006,66 @@ describe("App", () => {
       getState: () => ({ ...state }),
     });
     const store = storeFake({}) as any;
-    const fixed = {};
+    const fixed: FixedObject = {
+      width: 0,
+      height: 0,
+      src: "",
+      srcSet: "",
+    };
+    const items: ItemAttribute[] = [
+      {
+        Name: "Lose Weight",
+        Caption: "Lose Weight",
+        contentPosition: "left",
+        Items: [
+          {
+            Name: "Evolution Name",
+            Image: "Evolution Image",
+          },
+          {
+            Name: "Did you do it?",
+            Image: "Exercise Nme",
+          },
+        ],
+      },
+      {
+        Name: "Conditioning",
+        Caption: "Conditioning",
+        contentPosition: "middle",
+        Items: [
+          {
+            Name: "Bike Name",
+            Image: "Bike Image",
+          },
+          {
+            Name: "Sharp Name",
+            Image: "Sharp Image",
+          },
+        ],
+      },
+      {
+        Name: "Strength",
+        Caption: "Lift weights",
+        contentPosition: "right",
+        Items: [
+          {
+            Name: "Ready Name",
+            Image: "Ready Image",
+          },
+          {
+            Name: "Set Name",
+            Image: "Set Image",
+          },
+        ],
+      },
+    ];
     const { queryByText } = render(
       <Provider store={store}>
         <Layout>
           <PureIndexPage
             handleUnderConstructionNotification={notification}
-            fixed={fixed}
+            logo={fixed}
+            items={items}
           />
         </Layout>
       </Provider>

@@ -16,7 +16,7 @@ describe("Michael", () => {
             loop=""
           >
             <source
-              src="./assets/vid/MichaelPR.mp4"
+              src="test-file-stub"
               type="video/mp4"
             />
             Your device does not support playing 'video/mp4' videos
@@ -314,7 +314,7 @@ describe("Michael", () => {
               loop=""
             >
               <source
-                src="./assets/vid/MichaelPR.mp4"
+                src="test-file-stub"
                 type="video/mp4"
               />
               Your device does not support playing 'video/mp4' videos

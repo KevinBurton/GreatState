@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import CountyStatus from '../components/CountyStatus';
+import CovidStatus from '../components/Covid/CovidStatus';
 
 
 class StateStatusComponent extends React.Component {
@@ -28,7 +28,7 @@ class StateStatusComponent extends React.Component {
         return (
             <Layout>
 			          <SEO title="Covid-19 Status" />
-                <CountyStatus features={data.features}/>
+                <CovidStatus features={data.features}/>
             </Layout>
         );
     }

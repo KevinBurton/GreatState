@@ -31,7 +31,8 @@ module.exports = {
   "coveragePathIgnorePatterns": [
     "<rootDir>/src/components/seo.js",
     "<rootDir>/src/components/image.js",
-    "<rootDir>/src/components/header.js"
+    "<rootDir>/src/components/header.js",
+    "<rootDir>/src/image.d.ts"
   ],
   "coverageThreshold": {
     "global": {

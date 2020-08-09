@@ -1,8 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-import PropTypes from "prop-types";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -11,17 +10,23 @@ import Hidden from "@material-ui/core/Hidden";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import AdminNavbarLinks from "./AdminNavbarLinks.js";
-import Button from "components/CustomButtons/Button.js";
+import Button from "../CustomButtons/Button.js";
 
-import styles from "assets/jss/great-state/components/headerStyle.js";
+import headerStyles from "../../assets/jss/great-state/components/headerStyle";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles((theme: Theme) => createStyles(headerStyles));
 
-export default function Header(props) {
+type HeaderProps = {
+  color: 'primary' | 'info' | 'success' | 'warning' | 'danger',
+  handleDrawerToggle?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
+  routes: object[]
+};
+
+const Header: FC<HeaderProps> = ({ color, routes, handleDrawerToggle }) => {
   const classes = useStyles();
   function makeBrand() {
     var name;
-    props.routes.map(prop => {
+    routes.map(route => {
       if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
         name = prop.name;
       }
@@ -29,7 +34,6 @@ export default function Header(props) {
     });
     return name;
   }
-  const { color } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color
   });
@@ -49,7 +53,7 @@ export default function Header(props) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={props.handleDrawerToggle}
+            onClick={handleDrawerToggle}
           >
             <Menu />
           </IconButton>
@@ -59,8 +63,4 @@ export default function Header(props) {
   );
 }
 
-Header.propTypes = {
-  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
-  handleDrawerToggle: PropTypes.func,
-  routes: PropTypes.arrayOf(PropTypes.object)
-};
+export default Header;

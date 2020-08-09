@@ -7,7 +7,6 @@ import Img, {FixedObject} from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 
 import CarouselBanner from '../components/Banner/CarouselBanner';
-import { string } from "prop-types";
 
 const handleUnderConstructionNotification = async (
   e: React.FormEvent<HTMLFormElement>

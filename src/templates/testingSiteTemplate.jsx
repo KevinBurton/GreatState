@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import CountyTesting from '../components/CountyTesting';
-
+import CovidTesting from '../components/Covid/CovidTesting';
 
 class StateTestingComponent extends React.Component {
     constructor(props) {
@@ -27,7 +26,7 @@ class StateTestingComponent extends React.Component {
          return (
             <Layout>
 			          <SEO title="Covid-19 Testing Sites" />
-                <CountyTesting features={this.state.data.features}/>
+                <CovidTesting features={this.state.data.features}/>
             </Layout>
         );
     }
