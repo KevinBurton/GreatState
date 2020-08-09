@@ -78,6 +78,12 @@ describe("CovidTesting", () => {
                           class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
                           scope="col"
                         >
+                          OBJECTID
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
+                        >
                           CT_ID
                         </th>
                         <th
@@ -121,6 +127,12 @@ describe("CovidTesting", () => {
                           scope="col"
                         >
                           STATE
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
+                        >
+                          ZIP
                         </th>
                         <th
                           class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"

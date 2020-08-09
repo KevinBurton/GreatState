@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CovidStatus, {
-  CovidStatusFeature,
-} from "../components/Covid/CovidStatus";
-describe("CovidStatus", () => {
+import { CovidStatusFeature } from "../components/Covid/CovidStatus";
+import { CovidTestingFeature } from "../components/Covid/CovidTesting";
+import CovidDaneCounty from "../components/Covid/CovidDaneCounty";
+describe("CovidDaneCounty", () => {
   test("renders CovidStatus without crashing", async () => {
-    const features: CovidStatusFeature[] = [
+    const status: CovidStatusFeature[] = [
       {
         attributes: {
           OBJECTID: 0,
@@ -40,7 +40,37 @@ describe("CovidStatus", () => {
         },
       },
     ];
-    const { container } = render(<CovidStatus features={features} />);
+    const testing: CovidTestingFeature[] = [
+      {
+        attributes: {
+          OBJECTID: 0,
+          CT_ID: "test",
+          CMNTY_SRVD: "test",
+          NAME: "test",
+          TYPE: "test",
+          COUNTY: "test",
+          ADDRESS: "test",
+          CITY: "test",
+          STATE: "test",
+          ZIP: 0,
+          LAT: 0,
+          LON: 0,
+          STATUS: "test",
+          ACTIVE: "test",
+          LOC_DISC: "test",
+          DATES: "test",
+          HOURS: "test",
+          PROCESS: "test",
+          PHONE: "test",
+          PHONE2: "test",
+          CONTACT: "test",
+          CONTACT2: "test",
+        },
+      },
+    ];
+    const { container } = render(
+      <CovidDaneCounty status={status} testing={testing} />
+    );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -259,157 +289,188 @@ describe("CovidStatus", () => {
                     </thead>
                     <tbody
                       class="MuiTableBody-root"
+                    />
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-grid-8 MuiGrid-container"
+        >
+          <div
+            class="MuiGrid-root makeStyles-grid-9 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12"
+          >
+            <div
+              class="makeStyles-card-10"
+            >
+              <div
+                class="makeStyles-cardHeader-14 makeStyles-warningCardHeader-18"
+              >
+                <h4
+                  class="makeStyles-cardTitleWhite-7"
+                >
+                  Dane County Testing Centers
+                </h4>
+                <p
+                  class="makeStyles-cardCategoryWhite-5"
+                >
+                  New employees on 15th September, 2016
+                </p>
+              </div>
+              <div
+                class="makeStyles-cardBody-24"
+              >
+                <div
+                  class="makeStyles-tableResponsive-37"
+                >
+                  <table
+                    class="MuiTable-root makeStyles-table-34"
+                  >
+                    <thead
+                      class="MuiTableHead-root makeStyles-warningTableHeader-27"
                     >
                       <tr
-                        class="MuiTableRow-root makeStyles-tableBodyRow-39"
+                        class="MuiTableRow-root makeStyles-tableHeadRow-38 MuiTableRow-head"
                       >
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          OBJECTID
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          test
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          CT_ID
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          test
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          CMNTY_SRVD
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          test
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          NAME
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          TYPE
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          COUNTY
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          ADDRESS
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          CITY
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          STATE
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          ZIP
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          LAT
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          LON
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          STATUS
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          ACTIVE
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          LOC_DISC
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          DATES
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          HOURS
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          PROCESS
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          PHONE
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          PHONE2
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
+                          CONTACT
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head makeStyles-tableCell-36 makeStyles-tableHeadCell-35"
+                          scope="col"
                         >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
-                        <td
-                          class="MuiTableCell-root MuiTableCell-body makeStyles-tableCell-36"
-                        >
-                          0
-                        </td>
+                          CONTACT2
+                        </th>
                       </tr>
-                    </tbody>
+                    </thead>
+                    <tbody
+                      class="MuiTableBody-root"
+                    />
                   </table>
                 </div>
               </div>
@@ -441,7 +502,7 @@ describe("CovidStatus", () => {
                   >
                     <defs>
                       <clippath
-                        id="recharts4-clip"
+                        id="recharts6-clip"
                       >
                         <rect
                           height="530"
@@ -584,6 +645,31 @@ describe("CovidStatus", () => {
                           <path
                             class="recharts-legend-icon"
                             d="M0,4h32v24h-32z"
+                            fill="#8884d8"
+                            stroke="none"
+                          />
+                        </svg>
+                        <span
+                          class="recharts-legend-item-text"
+                        >
+                          newpos
+                        </span>
+                      </li>
+                      <li
+                        class="recharts-legend-item legend-item-2"
+                        style="display: inline-block; margin-right: 10px;"
+                      >
+                        <svg
+                          class="recharts-surface"
+                          height="14"
+                          style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                          version="1.1"
+                          viewBox="0 0 32 32"
+                          width="14"
+                        >
+                          <path
+                            class="recharts-legend-icon"
+                            d="M0,4h32v24h-32z"
                             fill="#82ca9d"
                             stroke="none"
                           />
@@ -595,7 +681,7 @@ describe("CovidStatus", () => {
                         </span>
                       </li>
                       <li
-                        class="recharts-legend-item legend-item-2"
+                        class="recharts-legend-item legend-item-3"
                         style="display: inline-block; margin-right: 10px;"
                       >
                         <svg
@@ -617,6 +703,31 @@ describe("CovidStatus", () => {
                           class="recharts-legend-item-text"
                         >
                           deaths
+                        </span>
+                      </li>
+                      <li
+                        class="recharts-legend-item legend-item-4"
+                        style="display: inline-block; margin-right: 10px;"
+                      >
+                        <svg
+                          class="recharts-surface"
+                          height="14"
+                          style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                          version="1.1"
+                          viewBox="0 0 32 32"
+                          width="14"
+                        >
+                          <path
+                            class="recharts-legend-icon"
+                            d="M0,4h32v24h-32z"
+                            fill="#f00c0c"
+                            stroke="none"
+                          />
+                        </svg>
+                        <span
+                          class="recharts-legend-item-text"
+                        >
+                          newdeaths
                         </span>
                       </li>
                     </ul>

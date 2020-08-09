@@ -39,7 +39,7 @@ export interface CovidStatusInfo {
   POSITIVE: number;
   POS_NEW:number;
   NEGATIVE: number;
-  NEG_NEW: Number;
+  NEG_NEW: number;
   DEATHS: number;
   DTH_NEW: number;
   TEST_NEW: number;
