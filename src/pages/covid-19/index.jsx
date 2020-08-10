@@ -48,6 +48,7 @@ class IndexPageComponent extends React.Component {
     render() {
       return (
         <Layout>
+          <SEO title="Covid-19 Index"/>
           {
             this.props.query.map(node => {
               if(node.node.context && node.node.context.query != null ) {
@@ -68,7 +69,7 @@ class IndexPageComponent extends React.Component {
                 } else if(query === 'dane') {
                   return (
                     <>
-                      <SEO title={`Covid-19 Dane County ${query}`} />
+                      <SEO title={`Covid-19 Dane ${query}`} />
                       <CovidDaneCounty status={this.state.status.features} testing={this.state.testing.features}/>
                     </>);
                 }

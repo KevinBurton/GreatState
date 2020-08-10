@@ -16,7 +16,7 @@ import {
   primaryColor,
   warningColor,
   hexToRgb
-} from "assets/jss/great-state-material.js";
+} from "../../great-state-material";
 
 const snackbarContentStyle = {
   root: {

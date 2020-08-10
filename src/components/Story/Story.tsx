@@ -1,8 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
+import Img, {FixedObject} from "gatsby-image";
 
-import mike from "assets/img/mike-burton.jpg";
+type ImageProps = {
+	mike: FixedObject;
+  }
 
-const Story = () => {
+export const Story:FC<ImageProps> = ({mike}) => {
 	return (
 		<>
 			<h2>OUR STORY</h2>
@@ -39,7 +42,7 @@ const Story = () => {
 
 				We hope to see you in the gym soon.
 			</p>
-			<img src={mike} alt="Mike"/>
+			<Img fixed={mike} alt="Mike"/>
 			<h5>MIKE BURTON</h5>
 			<h6>Head Coach and Owner</h6>
 			<p>CF Level 1</p>

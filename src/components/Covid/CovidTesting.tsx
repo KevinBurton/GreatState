@@ -36,10 +36,39 @@ export interface CovidTestingAttributes {
   CONTACT: string;
   CONTACT2: string;
 }
+export interface CovidTestingField {
+  name: string,
+  type: string,
+  alias: string,
+  sqlType: string,
+  domain: object,
+  defaultValue: object
+}
 
 export interface CovidTestingFeature {
   attributes: CovidTestingAttributes;
 }
+export interface CovidTestingData {
+  objectIdFieldName?: string,
+  uniqueIdField?: {
+    name: string,
+    isSystemMaintained: boolean
+  },
+  globalIdFieldName?: string,
+  geometryProperties?: {
+    shapeAreaFieldName: string,
+    shapeLengthFieldName: string,
+    units: string
+  },
+  geometryType?: string,
+  spatialReference?: {
+    wkid: number,
+    latestWkid: number
+  },
+  fields?: CovidTestingField[],
+  features: CovidTestingFeature[]
+}
+
 type CovidTestingProps = {
   features?: CovidTestingFeature[];
 }

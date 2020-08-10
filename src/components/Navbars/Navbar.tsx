@@ -11,7 +11,7 @@ import Menu from "@material-ui/icons/Menu";
 // core components
 import AdminNavbarLinks from "./AdminNavbarLinks.js";
 import Button from "../CustomButtons/Button.js";
-
+import { RouteDefinition } from "../../routes"
 import headerStyles from "../../assets/jss/great-state/components/headerStyle";
 
 const useStyles = makeStyles((theme: Theme) => createStyles(headerStyles));
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles(headerStyles));
 type HeaderProps = {
   color: 'primary' | 'info' | 'success' | 'warning' | 'danger',
   handleDrawerToggle?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
-  routes: object[]
+  routes: RouteDefinition[]
 };
 
 const Header: FC<HeaderProps> = ({ color, routes, handleDrawerToggle }) => {
@@ -27,8 +27,8 @@ const Header: FC<HeaderProps> = ({ color, routes, handleDrawerToggle }) => {
   function makeBrand() {
     var name;
     routes.map(route => {
-      if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
-        name = prop.name;
+      if (window.location.href.indexOf(route.layout + route.path) !== -1) {
+        name = route.name;
       }
       return null;
     });

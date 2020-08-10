@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
 
-import Location from 'components/Location/Location';
+import Location from '../Location/Location';
 
 const useStyles = makeStyles({
     root: {

@@ -61,9 +61,38 @@ export interface CovidStatusInfo {
   Shape__Area: number;
   Shape__Length: number;
 }
+export interface CovidStatusField {
+  name: string,
+  type: string,
+  alias: string,
+  sqlType: string,
+  domain: object,
+  defaultValue: object
+}
 export interface CovidStatusFeature {
   attributes: CovidStatusInfo
 }
+export interface CovidStatusData {
+  objectIdFieldName?: string,
+  uniqueIdField?: {
+    name: string,
+    isSystemMaintained: boolean
+  },
+  globalIdFieldName?: string,
+  geometryProperties?: {
+    shapeAreaFieldName: string,
+    shapeLengthFieldName: string,
+    units: string
+  },
+  geometryType?: string,
+  spatialReference?: {
+    wkid: number,
+    latestWkid: number
+  },
+  fields?: CovidStatusField[],
+  features: CovidStatusFeature[]
+}
+
 type CovidStatusProps = {
   features?: CovidStatusFeature[];
 }

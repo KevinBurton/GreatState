@@ -1,4 +1,4 @@
-import { hexToRgb, whiteColor } from "assets/jss/great-state-material.js";
+import { hexToRgb, whiteColor } from "../../great-state-material";
 
 const customTabsStyle = {
   cardTitle: {

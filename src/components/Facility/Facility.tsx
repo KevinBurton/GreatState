@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
+import Img, {FixedObject} from "gatsby-image";
 
-import inside from "assets/img/inside.jpg";
-import inside2 from "assets/img/inside2.jpg";
-import inside3 from "assets/img/inside3.jpg";
-import window from "assets/img/window.jpg";
-import balcony from "assets/img/balcony.jpg";
+type ImageProps = {
+	inside: FixedObject;
+	inside2: FixedObject;
+	inside3: FixedObject;
+	window: FixedObject;
+	balcony: FixedObject;
+}
   
-const Facility = () => {
+const Facility: FC<ImageProps> = ({inside, inside2, inside3, window, balcony}) => {
 	return (
 		<>
 			<h2>Facility</h2>
@@ -31,15 +34,13 @@ const Facility = () => {
 
 				Check out our box below or, better yet, come visit us. We would love to meet you.
 			</p>
-			<img src={inside} style={{width: "50%"}} alt="Inside"/>
-			<br/>
-			<img src={inside2} style={{width: "50%"}} alt="Inside2"/>
-            <br/>
-            <img src={inside3} style={{width: "50%"}} alt="Inside3"/>
-            <br/>
-            <img src={window} style={{width: "50%"}} alt="Window"/>
-            <br/>
-            <img src={balcony} style={{width: "50%"}} alt="Balcony"/>
+			<Img fixed={inside} alt="Inside"/>
+			<div>
+				<Img fixed={inside2} alt="Inside2"/>
+				<Img fixed={inside3} alt="Inside3"/>
+				<Img fixed={window} alt="Window"/>
+				<Img fixed={balcony} alt="Balcony"/>
+			</div>
 		</>
 	);
 }

@@ -9,7 +9,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import CarouselBanner from '../components/Banner/CarouselBanner';
 
 const handleUnderConstructionNotification = async (
-  e: React.FormEvent<HTMLFormElement>
+  e: React.MouseEvent<HTMLButtonElement, MouseEvent>
 ): Promise<void> => {
   e.preventDefault();
   console.log(e);

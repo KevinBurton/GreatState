@@ -185,40 +185,6 @@ export default function NavMenu() {
         </StyledMenu>
         );
 
-    const covidMenuId = 'covid-menu';
-    const renderCovidMenu = (
-        <StyledMenu
-            anchorEl={anchorElc}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={covidMenuId}
-            keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isCovidMenuOpen}
-            onClose={handleCovidMenuClose}
-        >
-            <StyledMenuItem onClick={handleCovidMenuClose}>
-                <Link to="/covid-19/status">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Status
-                    </Typography>
-                </Link>
-            </StyledMenuItem>
-            <StyledMenuItem onClick={handleCovidMenuClose}>
-                <Link to="/covid-19/testing">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Testing Sites
-                    </Typography>
-                </Link>
-            </StyledMenuItem>
-            <StyledMenuItem onClick={handleCovidMenuClose}>
-                <Link to="/covid-19/dane">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Dane County
-                    </Typography>
-                </Link>
-            </StyledMenuItem>
-        </StyledMenu>
-   );
     return (
         <div className={classes.grow}>
             <React.StrictMode>
@@ -283,18 +249,13 @@ export default function NavMenu() {
                                         </Typography>
                                     </MenuItem>
                                 </Link>
-                                <Button
-                                    aria-controls={aboutMenuId}
-                                    aria-haspopup="true"
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={handleCovidMenuOpen}
-                                >
-                                    <Typography className={classes.nav} variant="h6" noWrap>
-                                        Covid-19
-                                     </Typography>
-                                </Button>
-                            {renderCovidMenu}
+                                <Link to="/covid">
+                                    <MenuItem>
+                                        <Typography className={classes.nav} variant="h6" noWrap>
+                                            Covid
+                                        </Typography>
+                                    </MenuItem>
+                                </Link>
                                 <Button
                                     aria-controls={aboutMenuId}
                                     aria-haspopup="true"
