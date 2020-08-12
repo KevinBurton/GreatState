@@ -1,10 +1,10 @@
 /*eslint-disable*/
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { Link } from "gatsby";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme, ThemeProvider } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import List from "@material-ui/core/List";
@@ -12,31 +12,41 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
 // core components
-import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
+import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.js";
 
-import styles from "assets/jss/great-state/components/sidebarStyle.js";
+import sidebarStyle from "../../assets/jss/great-state/components/sidebarStyle";
+import { ThemeConsumer } from "styled-components";
+import { RouteDefinition } from '../../routes';
+const useStyles = makeStyles((theme: Theme) => createStyles(sidebarStyle(theme)));
 
-const useStyles = makeStyles(styles);
+type SidebarProps = {
+    handleDrawerToggle: (e: object) => void;
+    bgColor: 'purple' | 'blue' | 'green' | 'orange' | 'red';
+    logo: string
+    image: string,
+    logoText: string,
+    routes: RouteDefinition[],
+    open: boolean;
+  }
 
-export default function Sidebar(props) {
+const Sidebar: FC<SidebarProps> = ({ bgColor, logo, image, logoText, routes, open, handleDrawerToggle }) => {
   const classes = useStyles();
   // verifies if routeName is the one active (in browser input)
-  function activeRoute(routeName) {
+  function activeRoute(routeName: string) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  const { color, logo, image, logoText, routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
         var activePro = " ";
         var listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.layout + prop.path)
+            [" " + bgColor ? classes[bgColor] : '']: activeRoute(prop.layout + prop.path)
           });
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path)
         });
         return (
-          <NavLink
+          <Link
             to={prop.layout + prop.path}
             className={activePro + classes.item}
             activeClassName="active"
@@ -60,7 +70,7 @@ export default function Sidebar(props) {
                 disableTypography={true}
               />
             </ListItem>
-          </NavLink>
+          </Link>
         );
       })}
     </List>
@@ -85,11 +95,11 @@ export default function Sidebar(props) {
         <Drawer
           variant="temporary"
           anchor={"left"}
-          open={props.open}
+          open={open}
           classes={{
             paper: classNames(classes.drawerPaper)
           }}
-          onClose={props.handleDrawerToggle}
+          onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true // Better open performance on mobile.
           }}
@@ -129,13 +139,4 @@ export default function Sidebar(props) {
     </div>
   );
 }
-
-Sidebar.propTypes = {
-  handleDrawerToggle: PropTypes.func,
-  bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red"]),
-  logo: PropTypes.string,
-  image: PropTypes.string,
-  logoText: PropTypes.string,
-  routes: PropTypes.arrayOf(PropTypes.object),
-  open: PropTypes.bool
-};
+export default Sidebar;

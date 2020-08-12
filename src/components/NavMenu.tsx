@@ -15,12 +15,15 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
-
+;
+type ErrorMessage = {
+    message: string
+}
 const errorFallback = ({error}: FallbackProps) => {
     return (
       <div role="alert">
         <p>Something went wrong:</p>
-        <pre style={{color: 'red'}}>{error.message}</pre>
+        <pre style={{color: 'red'}}>{error ? error.message : ''}</pre>
       </div>
     )
   }

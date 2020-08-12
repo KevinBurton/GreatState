@@ -1,3 +1,5 @@
+
+import { Theme } from '@material-ui/core/styles';
 import {
   drawerWidth,
   transition,
@@ -13,37 +15,37 @@ import {
   grayColor,
   blackColor,
   hexToRgb
-} from "assets/jss/great-state-material.js";
+} from "../../great-state-material";
 
-const sidebarStyle = theme => ({
+const sidebarStyle = (theme: Theme) => ({
   drawerPaper: {
     border: "none",
-    position: "fixed",
+    position: 'fixed' as 'fixed',
     top: "0",
     bottom: "0",
     left: "0",
-    zIndex: "1",
+    zIndex: 1,
     ...boxShadow,
     width: drawerWidth,
     [theme.breakpoints.up("md")]: {
       width: drawerWidth,
-      position: "fixed",
+      position: 'fixed' as 'fixed',
       height: "100%"
     },
     [theme.breakpoints.down("sm")]: {
       width: drawerWidth,
       ...boxShadow,
-      position: "fixed",
+      position: 'fixed' as 'fixed',
       display: "block",
       top: "0",
       height: "100vh",
       right: "0",
       left: "auto",
-      zIndex: "1032",
+      zIndex: 1032,
       visibility: "visible",
       overflowY: "visible",
       borderTop: "none",
-      textAlign: "left",
+      textAlign: 'left' as 'left',
       paddingRight: "0px",
       paddingLeft: "0",
       transform: `translate3d(${drawerWidth}px, 0, 0)`,
@@ -51,12 +53,12 @@ const sidebarStyle = theme => ({
     }
   },
   logo: {
-    position: "relative",
+    position: 'relative' as 'relative',
     padding: "15px 15px",
-    zIndex: "4",
+    zIndex: 4,
     "&:after": {
       content: '""',
-      position: "absolute",
+      position: 'absolute' as 'absolute',
       bottom: "0",
 
       height: "1px",
@@ -67,12 +69,12 @@ const sidebarStyle = theme => ({
   },
   logoLink: {
     ...defaultFont,
-    textTransform: "uppercase",
+    textTransform: 'uppercase' as 'uppercase',
     padding: "5px 0",
     display: "block",
     fontSize: "18px",
-    textAlign: "left",
-    fontWeight: "400",
+    textAlign: 'left' as 'left',
+    fontWeight: 400,
     lineHeight: "30px",
     textDecoration: "none",
     backgroundColor: "transparent",
@@ -90,13 +92,13 @@ const sidebarStyle = theme => ({
   img: {
     width: "35px",
     top: "22px",
-    position: "absolute",
+    position: 'absolute' as 'absolute',
     verticalAlign: "middle",
     border: "0"
   },
   background: {
-    position: "absolute",
-    zIndex: "1",
+    position: 'absolute' as 'absolute',
+    zIndex: 1,
     height: "100%",
     width: "100%",
     display: "block",
@@ -105,8 +107,8 @@ const sidebarStyle = theme => ({
     backgroundSize: "cover",
     backgroundPosition: "center center",
     "&:after": {
-      position: "absolute",
-      zIndex: "3",
+      position: 'absolute' as 'absolute',
+      zIndex: 3,
       width: "100%",
       height: "100%",
       content: '""',
@@ -122,10 +124,10 @@ const sidebarStyle = theme => ({
     paddingBottom: "0",
     marginBottom: "0",
     listStyle: "none",
-    position: "unset"
+    position: 'unset' as 'unset'
   },
   item: {
-    position: "relative",
+    position: 'relative' as 'relative',
     display: "block",
     textDecoration: "none",
     "&:hover,&:focus,&:visited,&": {
@@ -137,7 +139,7 @@ const sidebarStyle = theme => ({
     transition: "all 300ms linear",
     margin: "10px 15px 0",
     borderRadius: "3px",
-    position: "relative",
+    position: 'relative' as 'relative',
     display: "block",
     padding: "10px 15px",
     backgroundColor: "transparent",
@@ -148,9 +150,9 @@ const sidebarStyle = theme => ({
     height: "30px",
     fontSize: "24px",
     lineHeight: "30px",
-    float: "left",
+    float: 'left' as 'left',
     marginRight: "15px",
-    textAlign: "center",
+    textAlign: 'center' as 'center',
     verticalAlign: "middle",
     color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
   },
@@ -261,16 +263,16 @@ const sidebarStyle = theme => ({
     }
   },
   sidebarWrapper: {
-    position: "relative",
+    position: 'relative' as 'relative',
     height: "calc(100vh - 75px)",
     overflow: "auto",
     width: "260px",
-    zIndex: "4",
+    zIndex: 4,
     overflowScrolling: "touch"
   },
   activePro: {
     [theme.breakpoints.up("md")]: {
-      position: "absolute",
+      position: 'absolute' as 'absolute',
       width: "100%",
       bottom: "13px"
     }

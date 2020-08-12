@@ -17,12 +17,12 @@ import headerStyles from "../../assets/jss/great-state/components/headerStyle";
 const useStyles = makeStyles((theme: Theme) => createStyles(headerStyles));
 
 type HeaderProps = {
-  color: 'primary' | 'info' | 'success' | 'warning' | 'danger',
+  color?: 'primary' | 'info' | 'success' | 'warning' | 'danger',
   handleDrawerToggle?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
   routes: RouteDefinition[]
 };
 
-const Header: FC<HeaderProps> = ({ color, routes, handleDrawerToggle }) => {
+const Header: FC<HeaderProps> = ({ color = 'primary', routes, handleDrawerToggle }) => {
   const classes = useStyles();
   function makeBrand() {
     var name;

@@ -1,25 +1,23 @@
+import {Theme} from '@material-ui/core/styles'
 import {
   drawerWidth,
   transition,
   container
-} from "assets/jss/great-state-material.js";
+} from "../../great-state-material";
 
-const appStyle = theme => ({
+const appStyle = {
   wrapper: {
     position: "relative",
     top: "0",
     height: "100vh"
   },
   mainPanel: {
-    [theme.breakpoints.up("md")]: {
-      width: `calc(100% - ${drawerWidth}px)`
-    },
+    width: `calc(100% - ${drawerWidth}px)`,
     overflow: "auto",
     position: "relative",
     float: "right",
     ...transition,
     maxHeight: "100%",
-    width: "100%",
     overflowScrolling: "touch"
   },
   content: {
@@ -31,6 +29,6 @@ const appStyle = theme => ({
   schedule: {
     marginTop: "70px"
   }
-});
+} as const;
 
 export default appStyle;
