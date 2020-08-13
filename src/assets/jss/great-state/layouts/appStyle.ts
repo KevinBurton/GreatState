@@ -5,14 +5,16 @@ import {
   container
 } from "../../great-state-material";
 
-const appStyle = {
+const appStyle = (theme: Theme) => ({
   wrapper: {
     position: "relative",
     top: "0",
     height: "100vh"
   },
   mainPanel: {
-    width: `calc(100% - ${drawerWidth}px)`,
+    [theme.breakpoints.up("md")]: {
+      width: `calc(100% - ${drawerWidth}px)`
+    },
     overflow: "auto",
     position: "relative",
     float: "right",
@@ -29,6 +31,6 @@ const appStyle = {
   schedule: {
     marginTop: "70px"
   }
-} as const;
+});
 
 export default appStyle;

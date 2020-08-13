@@ -17,7 +17,7 @@ import DashboardPage from "./pages/dashboard";
 import UserProfile from "./pages/userprofile";
 import NotificationsPage from "./pages/notifications";
 // Great State
-import Covid19Page from "./pages/covid-19";
+import CovidPage from "./pages/covid";
 import WeightsPage from "./pages/weights"
 import WODPage from "./pages/wod"
 import MichaelPage from "./pages/michael";
@@ -30,7 +30,7 @@ import ProgramsPage from "./pages/programs";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core";
 
-export interface RouteDefinition {
+export type RouteDefinition = {
   path: string;
   name: string;
   icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
@@ -125,10 +125,10 @@ const dashboardRoutes: RouteDefinition[] = [
     layout: "/public"
   },
   {
-    path: "/covid-19",
+    path: "/covid",
     name: "COVID-19",
     icon: BugReport,
-    component: Covid19Page,
+    component: CovidPage,
     layout: "/public"
   },
 

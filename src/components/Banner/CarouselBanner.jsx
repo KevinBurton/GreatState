@@ -1,7 +1,9 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import Carousel from "react-material-ui-carousel"
+import PropTypes from "prop-types";
+import Carousel, { CarouselProps } from "react-material-ui-carousel"
 import autoBind from "auto-bind"
+import { RouteDefinition } from "../../routes";
 import '../../assets/scss/carouselbanner.scss';
 
 import {
@@ -76,6 +78,18 @@ function Banner(props) {
         </Card>
     )
 }
+// type CarouselBannerProps = {
+//     items: RouteDefinition[]
+// };
+// type CarouselBannerState = {
+//     autoPlay: boolean;
+//     timer: number;
+//     animation: 'fade' | 'slide' | undefined;
+//     indicators: boolean;
+//     timeout: number;
+//     navButtonsAlwaysVisible: boolean;
+//     navButtonsAlwaysInvisible: boolean;
+// }
 
 class CarouselBanner extends React.Component {
     constructor(props) {
@@ -84,7 +98,7 @@ class CarouselBanner extends React.Component {
         this.state = {
             autoPlay: true,
             timer: 500,
-            animation: "fade",
+            animation: 'fade',
             indicators: true,
             timeout: 500,
             navButtonsAlwaysVisible: false,
@@ -142,7 +156,6 @@ class CarouselBanner extends React.Component {
                 <Carousel
                     className="Example"
                     autoPlay={this.state.autoPlay}
-                    timer={this.state.timer}
                     animation={this.state.animation}
                     indicators={this.state.indicators}
                     timeout={this.state.timeout}
@@ -150,7 +163,7 @@ class CarouselBanner extends React.Component {
                     navButtonsAlwaysInvisible={this.state.navButtonsAlwaysInvisible}
                 >
                     {
-                        this.props.items.map((item, index) => {
+                        this.props.items && this.props.items.map((item, index) => {
                             return <Banner onClick={this.onClickStart} item={item} key={index} contentPosition={item.contentPosition}/>
                         })
                     }
@@ -159,5 +172,5 @@ class CarouselBanner extends React.Component {
         )
     }
 }
-
+ 
 export default CarouselBanner;
