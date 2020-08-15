@@ -105,10 +105,11 @@ export default class AzureLogging {
     Log(message: string) {
         const now = new Date();
         const signature = this.Signature(message, now.toUTCString());
-        console.log(`Date ${now.toUTCString()} Message ${message} Signature ${signature}`);
+        const authorization = 'SharedKey ' + this.workspaceId + ':' + signature;
+        //console.log(`Date ${now.toUTCString()} Message ${message} Signature ${signature}`);
         this.axiosInstance.post( '/api/logs?api-version=2016-04-01', message, {
             headers: {
-              Authorization: signature,
+              Authorization: authorization,
               'Log-Type': this.logName,
               'x-ms-date': now.toUTCString(),
               'time-generated-field': now.toISOString()

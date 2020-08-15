@@ -10,7 +10,7 @@ const CovidPage = () => {
 	const loggingIstance = new AzureLogging('48512397-216e-49f7-988c-90ac161bf838',
 											'GreatStateLogging',
 											'qJOZAj/rE/FrwSDQvHqDKH/TSjHWqjTpFCAZdhriVhZhip1FNs5YF9MiJNS34I8cTgfyjAqtchYHtWvKKrPv9g==');
-	//loggingIstance.Log('Covid');
+	loggingIstance.Log('Covid');
 	return (
 		<Layout>
 			<SEO title="Home" />
