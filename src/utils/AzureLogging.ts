@@ -65,6 +65,7 @@ import axios, { AxiosInstance } from 'axios';
 
 //     })
 // }
+// Date Sat, 15 Aug 2020 05:12:40 GMT Message Covid Signature oc9/EZeJHyITBqrVP86vwPe/iR/h/WN5RYkbxaYFZFk=
 
 export default class AzureLogging {
     private secret: string;
@@ -89,12 +90,11 @@ export default class AzureLogging {
         }
         return arr;
     }
-    private BuildSignature(stingToSign: string): string {
-        const hmac = forge.hmac.create();
-        const hashedString = forge.util.bytesToHex(forge.util.encodeUtf8(this.secret));
-        hmac.start('sha256',hashedString);
-        hmac.update(forge.util.encodeUtf8(stingToSign));
-        return hmac.digest().toHex();
+    private BuildSignature(stringToSign: string): string {
+      const hmac = forge.hmac.create();
+      hmac.start('sha256', forge.util.createBuffer(forge.util.decode64(this.secret)));
+      hmac.update(forge.util.encodeUtf8(stringToSign));
+      return forge.util.encode64(hmac.digest().bytes());
     }
     private Signature(message: string, dateString: string): string {
 
@@ -104,13 +104,13 @@ export default class AzureLogging {
     }
     Log(message: string) {
         const now = new Date();
-        const dateString = now.toUTCString();
-        const signature = this.Signature(message, dateString);
+        const signature = this.Signature(message, now.toUTCString());
+        console.log(`Date ${now.toUTCString()} Message ${message} Signature ${signature}`);
         this.axiosInstance.post( '/api/logs?api-version=2016-04-01', message, {
             headers: {
               Authorization: signature,
               'Log-Type': this.logName,
-              'x-ms-date': dateString,
+              'x-ms-date': now.toUTCString(),
               'time-generated-field': now.toISOString()
             }
           }).then((response) => {
