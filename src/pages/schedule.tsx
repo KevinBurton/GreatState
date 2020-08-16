@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 
-import './Schedule.css';
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+import './Schedule.css';
 
 export const PureSchedule = () => {
 	return (

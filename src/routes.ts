@@ -33,6 +33,7 @@ import { SvgIconTypeMap } from "@material-ui/core";
 export type RouteDefinition = {
   path: string;
   name: string;
+  caption: string;
   icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
   component: React.ReactNode;
   layout: string;
@@ -42,6 +43,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/dashboard",
     name: "Dashboard",
+    caption: "Dashboard",
     icon: Dashboard,
     component: DashboardPage,
     layout: "/public"
@@ -49,6 +51,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/user",
     name: "User Profile",
+    caption: "User Profile",
     icon: Person,
     component: UserProfile,
     layout: "/public"
@@ -56,6 +59,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/notifications",
     name: "Notifications",
+    caption: "Notifications",
     icon: Notifications,
     component: NotificationsPage,
     layout: "/public"
@@ -64,6 +68,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/gettingstarted",
     name: "Getting Started",
+    caption: "Getting Started",
     icon: FlightTakeoff,
     component: GettingStartedPage,
     layout: "/public"
@@ -71,6 +76,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/schedule",
     name: "Class Schedule",
+    caption: "Class Schedule",
     icon: CalendarToday,
     component: SchedulePage,
     layout: "/public"
@@ -78,6 +84,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/dropins",
     name: "Dropins",
+    caption: "Dropins",
     icon: EmojiPeople,
     component: DropinsPage,
     layout: "/public"
@@ -85,6 +92,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/programs",
     name: "Programs",
+    caption: "Programs",
     icon: PostAdd,
     component: ProgramsPage,
     layout: "/public"
@@ -92,6 +100,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/wod",
     name: "WOD",
+    caption: "WOD",
     icon: FitnessCenter,
     component: WODPage,
     layout: "/public"
@@ -99,6 +108,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/pricing",
     name: "Membership Pricing",
+    caption: "Membership Pricing",
     icon: AttachMoney,
     component: PricingPage,
     layout: "/public"
@@ -106,6 +116,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/michael",
     name: "Michael",
+    caption: "Michael",
     icon: Person,
     component: MichaelPage,
     layout: "/public"
@@ -113,6 +124,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/weights",
     name: "Weights",
+    caption: "Weights",
     icon: Apps,
     component: WeightsPage,
     layout: "/public"
@@ -120,6 +132,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/about",
     name: "About Great State",
+    caption: "About Great State",
     icon: MenuBook,
     component: AboutPage,
     layout: "/public"
@@ -127,6 +140,7 @@ const dashboardRoutes: RouteDefinition[] = [
   {
     path: "/covid",
     name: "COVID-19",
+    caption: "COVID-19",
     icon: BugReport,
     component: CovidPage,
     layout: "/public"

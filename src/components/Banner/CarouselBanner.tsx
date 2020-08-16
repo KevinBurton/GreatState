@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { navigate } from 'gatsby';
-import PropTypes from "prop-types";
-import Carousel, { CarouselProps } from "react-material-ui-carousel"
+import Carousel from "react-material-ui-carousel"
 import autoBind from "auto-bind"
-import { RouteDefinition } from "../../routes";
+import { CarouselItem } from './CarouselItem';
 import '../../assets/scss/carouselbanner.scss';
 
 import {
@@ -14,11 +13,16 @@ import {
     Grid,
     Button,
 } from '@material-ui/core';
+import { number } from 'prop-types';
 
-function Banner(props) {
-    if (props.newProp) console.log(props.newProp)
-    const contentPosition = props.contentPosition ? props.contentPosition : "left"
-    const totalItems = props.length ? props.length : 3;
+type BannerProps = {
+    onClick: (event) => void;
+    banneritem: CarouselItem;
+    length?: number;
+    contentPosition: 'left' | 'right' | 'middle';
+};
+const Banner:FC<BannerProps> = ({onClick, banneritem, length = 3, contentPosition}) => {
+    const totalItems = length;
     const mediaLength = totalItems - 1;
 
     let items = [];
@@ -26,14 +30,14 @@ function Banner(props) {
         <Grid item xs={12 / totalItems} key="content">
             <CardContent className="Content">
                 <Typography className="Title">
-                    {props.item.Name}
+                    {banneritem.Name}
                 </Typography>
 
                 <Typography className="Caption">
-                    {props.item.Caption}
+                    {banneritem.Caption}
                 </Typography>
 
-                <Button onClick={() => props.onClick()} variant="outlined" className="ViewButton">
+                <Button onClick={(e) => onClick(e)} variant="outlined" className="ViewButton">
                     Start Now
                 </Button>
             </CardContent>
@@ -42,17 +46,17 @@ function Banner(props) {
 
 
     for (let i = 0; i < mediaLength; i++) {
-        const item = props.item.Items[i];
+        const sideitem = banneritem.Items[i];
 
         const media = (
-            <Grid item xs={12 / totalItems} key={item.Name}>
+            <Grid item xs={12 / totalItems} key={sideitem.Name}>
                 <CardMedia
                     className="Media"
-                    image={item.Image}
-                    title={item.Name}
+                    image={sideitem.Image}
+                    title={sideitem.Name}
                 >
                     <Typography className="MediaCaption">
-                        {item.Name}
+                        {sideitem.Name}
                     </Typography>
                 </CardMedia>
 
@@ -78,21 +82,22 @@ function Banner(props) {
         </Card>
     )
 }
-// type CarouselBannerProps = {
-//     items: RouteDefinition[]
-// };
-// type CarouselBannerState = {
-//     autoPlay: boolean;
-//     timer: number;
-//     animation: 'fade' | 'slide' | undefined;
-//     indicators: boolean;
-//     timeout: number;
-//     navButtonsAlwaysVisible: boolean;
-//     navButtonsAlwaysInvisible: boolean;
-// }
+type CarouselBannerProps = {
+    items: CarouselItem[]
+};
+type CarouselBannerState = {
+    autoPlay: boolean;
+    timer: number;
+    animation: 'fade' | 'slide' | undefined;
+    indicators: boolean;
+    timeout: number;
+    navButtonsAlwaysVisible: boolean;
+    navButtonsAlwaysInvisible: boolean;
+}
 
-class CarouselBanner extends React.Component {
-    constructor(props) {
+class CarouselBanner extends React.Component<CarouselBannerProps, CarouselBannerState> {
+    constructor(props: CarouselBannerProps) {
+
         super(props);
 
         this.state = {
@@ -140,7 +145,7 @@ class CarouselBanner extends React.Component {
         })
     }
 
-    changeTimeout(event, value) {
+    changeTimeout(event, value: number) {
         this.setState({
             timeout: value
         })
@@ -164,7 +169,7 @@ class CarouselBanner extends React.Component {
                 >
                     {
                         this.props.items && this.props.items.map((item, index) => {
-                            return <Banner onClick={this.onClickStart} item={item} key={index} contentPosition={item.contentPosition}/>
+                            return <Banner onClick={this.onClickStart} banneritem={item} key={index} contentPosition={item.contentPosition}/>
                         })
                     }
                 </Carousel>
