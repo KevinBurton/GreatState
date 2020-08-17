@@ -405,7 +405,7 @@ describe("Contact", () => {
           </div>
           <img
             alt="Gym"
-            src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=AIzaSyCnOdoYKEm2qYt82jJKH8clFc9gcuvEmPY"
+            src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=<api key>"
           />
         </div>
       </div>
@@ -537,7 +537,7 @@ describe("Contact", () => {
         </div>
         <img
           alt="Gym"
-          src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=AIzaSyCnOdoYKEm2qYt82jJKH8clFc9gcuvEmPY"
+          src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=<api key>"
         />
       </div>
     `);
