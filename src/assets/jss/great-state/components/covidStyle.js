@@ -9,7 +9,7 @@ import {
   
   const covidStyle = {
     background: {
-      height: "100vh",
+      height: "100%",
       backgroundImage: `url(${background})`,
       backgroundPosition: "center center",
       backgroundSize: "cover"

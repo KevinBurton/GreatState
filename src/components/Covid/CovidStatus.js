@@ -98,6 +98,7 @@ const CovidStatus = () => {
               </CardHeader>
               <CardBody>
                 <Table
+                  className={classes.background}
                   tableHeaderColor="warning"
                   tableHead={["GEO","NAME","POSITIVE","NEGATIVE","DEATHS","OBJECTID",
                               "GEOID","POP","LoadDttm","PCT_POP_65","PCT_SMK","PCT_COPD",
