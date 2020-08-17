@@ -12,7 +12,7 @@ import {
       height: "100%",
       backgroundImage: `url(${background})`,
       backgroundPosition: "center center",
-      backgroundSize: "cover"
+      backgroundSize: "50vh"
     },
     successText: {
       color: successColor[0]
