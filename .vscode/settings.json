@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6ed465db-07c4-4a4c-8f68-3eec14aff92c/resourceGroups/greatstate/providers/Microsoft.Web/sites/GreatState",
+    "appService.deploySubpath": "."
+}
