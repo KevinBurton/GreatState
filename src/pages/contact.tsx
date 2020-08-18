@@ -75,7 +75,7 @@ export const PureContact = () => {
                 </Card >
             </Box>
             <Location center={center} />
-            <img alt="Gym" src="https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=<api key>"/>
+            <img alt="Gym" src={`https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&signature=cR0crY9s9D2zswQOdpOCoqlmmsw=`}/>
         </>
     )
 };
