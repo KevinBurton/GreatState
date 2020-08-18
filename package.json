@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "GreatState",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Great State web-site",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kevin Burton <rkevinburton@charter.net>",
   "dependencies": {
     "@azure/identity": "^1.1.0",
     "@azure/keyvault-secrets": "^4.1.0",
