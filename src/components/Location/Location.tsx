@@ -1,16 +1,36 @@
-import React from 'react';
-import PropTypes from "prop-types";
+import React, { FC, useState, useCallback } from 'react';
+import { useStaticQuery, graphql } from "gatsby"
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
+
 
 const containerStyle = {
     width: '800px',
     height: '800px'
 };
 
-const Location = ({ center }) => {
-    const [, setMap] = React.useState(null);
+type LocationCenter = {
+    center: {
+        lat: number;
+        lng: number;
+    }
+}
 
-    const onLoad = React.useCallback(function callback(map) {
+const Location: FC<LocationCenter>  = ({ center }) => {
+    // const { site } = useStaticQuery(
+    //   graphql`
+    //     query {
+    //       site {
+    //         siteMetadata {
+    //             googleMapsApiKey
+    //         }
+    //       }
+    //     }
+    //   `
+    // )
+    let googleMapsApiKey: string = process.env.GOOGLE_MAPS_API_KEY ?? '';
+    const [, setMap] = useState(null);
+    
+    const onLoad = useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds();
         const points = [
             { lng: center.lng + 0.010, lat: center.lat - 0.010 },
@@ -20,16 +40,15 @@ const Location = ({ center }) => {
         ];
         points.forEach((point) => bounds.extend(point));
         map.fitBounds(bounds);
-        setMap(map)
+        setMap(map);
     }, [center.lng,center.lat])
 
-    const onUnmount = React.useCallback(function callback(map) {
+    const onUnmount = useCallback(function callback(map) {
         setMap(null)
     }, [])
-
     return (
         <LoadScript
-            googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_KEY}
+            googleMapsApiKey={googleMapsApiKey}
         >
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -45,11 +64,4 @@ const Location = ({ center }) => {
     );
 };
 
-Location.propTypes = {
-    center: PropTypes.shape({
-        lat: PropTypes.number.isRequired,
-        lng: PropTypes.number.isRequired
-    })
-};
-  
 export default Location;

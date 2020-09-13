@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="facde061-e05f-4545-b333-e4aff5640535" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Location/Location.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dropin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dropin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AzureKeyVault.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AzureKeyVault.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1h6OwUoAf52TCxHXc3QtiKYzyvu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="C:\Users\RKevi\source\repos\GreatState-gatsby\node_modules\typescript\lib" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="facde061-e05f-4545-b333-e4aff5640535" name="Default Changelist" comment="" />
+      <created>1599328316929</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599328316929</updated>
+      <workItem from="1599328328699" duration="1513000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="437" y="245" key="SignInWindow" timestamp="1599329090368">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="437" y="245" key="SignInWindow/0.0.1536.824@0.0.1536.824" timestamp="1599329090368" />
+    <state x="574" y="267" key="SubscriptionsDialog" timestamp="1599329096892">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="267" key="SubscriptionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599329096892" />
+  </component>
+</project>

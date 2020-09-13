@@ -103,6 +103,11 @@
     "@opentelemetry/api" "^0.10.2"
     tslib "^2.0.0"
 
+"@azure/functions@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@azure/functions/-/functions-1.2.2.tgz#8fcb6aa3a879d3be0dc3d68919f969b054bbe3f3"
+  integrity sha512-p/dDHq1sG/iAib+eDY4NxskWHoHW1WFzD85s0SfWxc2wVjJbxB0xz/zBF4s7ymjVgTu+0ceipeBk+tmpnt98oA==
+
 "@azure/identity@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@azure/identity/-/identity-1.1.0.tgz#e7c9a99d0408c7f8776d4f268a343d645971c662"
@@ -2648,6 +2653,14 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@types/reactstrap@^8.5.1":
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/@types/reactstrap/-/reactstrap-8.5.1.tgz#bd01ed7b14b9aeb476c0b8e195443dda98ac6156"
+  integrity sha512-oEedcEGoX8EqDymsjrjzTnmaf3FuDY9qKLZMA9cH1ZkkqBc2V4i2sJ6ssXEod+GHQ5XH2r52uvbMkjEkjEZHDQ==
+  dependencies:
+    "@types/react" "*"
+    popper.js "^1.14.1"
 
 "@types/recharts@^1.8.14":
   version "1.8.14"
@@ -12691,7 +12704,7 @@ popper.js@1.16.1-lts:
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1-lts.tgz#cf6847b807da3799d80ee3d6d2f90df8a3f50b05"
   integrity sha512-Kjw8nKRl1m+VrSFCoVGPph93W/qrSO7ZkqPpTf7F4bk/sqcfWK019dWBUpE/fBOsOQY1dks/Bmcbfn1heM/IsA==
 
-popper.js@^1.14.4:
+popper.js@^1.14.1, popper.js@^1.14.4:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
   integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==

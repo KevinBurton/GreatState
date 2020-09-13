@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
 
-import Location from '../components/Location';
+import Location from '../components/Location/Location';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -75,7 +75,7 @@ export const PureContact = () => {
                 </Card >
             </Box>
             <Location center={center} />
-            <img alt="Gym" src={`https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&signature=cR0crY9s9D2zswQOdpOCoqlmmsw=`}/>
+            <img alt="Gym" src={`https://maps.googleapis.com/maps/api/streetview?location=43.035419,-89.380748&size=456x456&key=${process.env.GOOGLE_MAPS_API_KEY}&signature=cR0crY9s9D2zswQOdpOCoqlmmsw=`}/>
         </>
     )
 };

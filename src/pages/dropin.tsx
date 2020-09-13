@@ -1,9 +1,8 @@
 ﻿import React from 'react';
-import Location from '../components/Location';
+import Location from '../components/Location/Location';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 const center = {
 	lat: 43.035419,
 	lng: -89.380748
