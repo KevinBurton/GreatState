@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
+import { Link } from "next/link";
 // @material-ui/core components
 import { makeStyles, createStyles, Theme, ThemeProvider } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -47,7 +47,7 @@ const Sidebar: FC<SidebarProps> = ({ bgColor, logo, image, logoText, routes, ope
         });
         return (
           <Link
-            to={prop.layout + prop.path}
+            href={prop.layout + prop.path}
             className={activePro + classes.item}
             activeClassName="active"
             key={key}

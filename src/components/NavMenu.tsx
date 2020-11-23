@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'next/link';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -144,45 +144,57 @@ export default function NavMenu() {
             onClose={handleAboutMenuClose}
         >
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/pricing">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Membership Pricing
-                    </Typography>
+                <Link href="/pricing">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Membership Pricing
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/programs">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Programs
-                    </Typography>
+                <Link href="/programs">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Programs
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/schedule">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Class Schedule
-                    </Typography>
+                <Link href="/schedule">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Class Schedule
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/story">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Our Story
-                    </Typography>
+                <Link href="/story">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Our Story
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/facility">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Our Facility
-                    </Typography>
+                <Link href="/facility">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Our Facility
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
             <StyledMenuItem onClick={handleAboutMenuClose}>
-                <Link to="/resources">
-                    <Typography className={classes.submenu} variant="h6" noWrap>
-                        Resources
-                    </Typography>
+                <Link href="/resources">
+                    <a>
+                        <Typography className={classes.submenu} variant="h6" noWrap>
+                            Resources
+                        </Typography>
+                    </a>
                 </Link>
             </StyledMenuItem>
         </StyledMenu>
@@ -201,63 +213,79 @@ export default function NavMenu() {
                             aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
-                            <Link to="/">
-                                <MenuItem>
-                                <Typography className={classes.nav} variant="h6" noWrap>
-                                    Great State
-                                </Typography>
-                                </MenuItem>
+                            <Link href="/">
+                                <a>
+                                    <MenuItem>
+                                        <Typography className={classes.nav} variant="h6" noWrap>
+                                            Great State
+                                        </Typography>
+                                    </MenuItem>
+                                </a>
                             </Link>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
-                                <Link to="/gettingstarted">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Getting Started
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/gettingstarted">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Getting Started
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
-                                <Link to="/weights">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Weights
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/weights">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Weights
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
-                                <Link to="/michael">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Michael
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/michael">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Michael
+                                            </Typography>
+                                        </MenuItem>
+                                   </a> 
                                 </Link>
-                                <Link to="/dropin">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Drop-Ins
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/dropin">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Drop-Ins
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
-                                <Link to="/wod">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            WOD
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/wod">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                WOD
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
-                                <Link to="/contact">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Contact Us
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/contact">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Contact Us
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
-                                <Link to="/covid">
-                                    <MenuItem>
-                                        <Typography className={classes.nav} variant="h6" noWrap>
-                                            Covid
-                                        </Typography>
-                                    </MenuItem>
+                                <Link href="/covid">
+                                    <a>
+                                        <MenuItem>
+                                            <Typography className={classes.nav} variant="h6" noWrap>
+                                                Covid
+                                            </Typography>
+                                        </MenuItem>
+                                    </a>
                                 </Link>
                                 <Button
                                     aria-controls={aboutMenuId}
@@ -276,7 +304,7 @@ export default function NavMenu() {
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
-                                <Link to="/login">
+                                <Link href="/login">
                                     <AccountCircle className={classes.nav} fontSize="large"/>
                                 </Link>
                         </div>
