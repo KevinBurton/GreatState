@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { navigate } from 'gatsby';
+import { useRouter } from 'next/router';
 import Carousel from "react-material-ui-carousel"
 import autoBind from "auto-bind"
 import { CarouselItem } from './CarouselItem';
@@ -11,12 +11,13 @@ import {
     CardMedia,
     Typography,
     Grid,
+    GridSize,
     Button,
 } from '@material-ui/core';
 import { number } from 'prop-types';
 
 type BannerProps = {
-    onClick: (event) => void;
+    onClick: (event: any) => void;
     banneritem: CarouselItem;
     length?: number;
     contentPosition: 'left' | 'right' | 'middle';
@@ -24,10 +25,10 @@ type BannerProps = {
 const Banner:FC<BannerProps> = ({onClick, banneritem, length = 3, contentPosition}) => {
     const totalItems = length;
     const mediaLength = totalItems - 1;
-
     let items = [];
+    const gridSize: GridSize = 12 / totalItems as GridSize;
     const content = (
-        <Grid item xs={12 / totalItems} key="content">
+        <Grid item xs={gridSize} key="content">
             <CardContent className="Content">
                 <Typography className="Title">
                     {banneritem.Name}
@@ -48,8 +49,10 @@ const Banner:FC<BannerProps> = ({onClick, banneritem, length = 3, contentPositio
     for (let i = 0; i < mediaLength; i++) {
         const sideitem = banneritem.Items[i];
 
+        const gridSize: GridSize = 12 / totalItems as GridSize;
+
         const media = (
-            <Grid item xs={12 / totalItems} key={sideitem.Name}>
+            <Grid item xs={gridSize} key={sideitem.Name}>
                 <CardMedia
                     className="Media"
                     image={sideitem.Image}
@@ -139,20 +142,22 @@ class CarouselBanner extends React.Component<CarouselBannerProps, CarouselBanner
         })
     }
 
-    changeAnimation(event) {
+    changeAnimation(event: any) {
         this.setState({
             animation: event.target.value
         })
     }
 
-    changeTimeout(event, value: number) {
+    changeTimeout(event: any, value: number) {
         this.setState({
             timeout: value
         })
     }
 
-    onClickStart(event) {
-        navigate('/public/gettingstarted');
+    onClickStart(event: any) {
+        event.preventDefault();
+        var router = useRouter();
+        router.push('/public/gettingstarted');
     }
 
     render() {
